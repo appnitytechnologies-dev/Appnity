@@ -1,0 +1,82 @@
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+html, body, #root {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+}
+
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  color: #0B1F3A;
+  background: #FFFFFF;
+  font-size: 15px;
+  line-height: 1.55;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  letter-spacing: -0.005em;
+}
+
+#root {
+  display: flex;
+  flex-direction: column;
+}
+
+h1, h2, h3, h4 {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  font-weight: 700;
+  letter-spacing: -0.025em;
+  line-height: 1.05;
+  margin: 0;
+  color: #0B1F3A;
+}
+
+p { margin: 0; }
+a { color: inherit; text-decoration: none; }
+button { font-family: inherit; cursor: pointer; }
+
+/* Page scroll container */
+.ap-page {
+  height: 100vh;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+/* Dot grid background */
+.ap-dot-bg {
+  background-image: radial-gradient(rgba(11,31,58,0.08) 1px, transparent 1px);
+  background-size: 22px 22px;
+}
+
+/* Mobile nav burger — hidden on desktop, shown on mobile */
+@media (max-width: 860px) {
+  .ap-burger {
+    display: flex !important;
+  }
+  nav.ap-nav-desktop {
+    display: none !important;
+  }
+  .ap-nav-cta > a,
+  .ap-nav-cta > button:not(.ap-burger) {
+    display: none !important;
+  }
+}
+
+/* Responsive grid tweaks */
+@media (max-width: 1100px) {
+  .ap-services-grid { grid-template-columns: repeat(2, 1fr) !important; }
+}
+
+@media (max-width: 800px) {
+  .ap-hero-grid,
+  .ap-about-grid,
+  .ap-cta-grid { grid-template-columns: 1fr !important; }
+
+  .ap-process-grid { grid-template-columns: 1fr 1fr !important; }
+  .ap-why-grid { grid-template-columns: 1fr !important; }
+  .ap-testimonials-grid { grid-template-columns: 1fr !important; }
+  .ap-services-grid { grid-template-columns: 1fr !important; }
+  .ap-foot-grid { grid-template-columns: 1fr 1fr !important; }
+}
