@@ -1,0 +1,197 @@
+/* ── Hero ─────────────────────────────────────────── */
+.services-hero {
+  padding: 64px 64px 48px;
+  position: relative;
+  overflow: hidden;
+}
+
+.services-hero__dots {
+  position: absolute;
+  inset: 0;
+  mask-image: radial-gradient(ellipse at 50% 0%, #000 25%, transparent 65%);
+  -webkit-mask-image: radial-gradient(ellipse at 50% 0%, #000 25%, transparent 65%);
+}
+
+.services-hero__container {
+  max-width: 880px;
+  margin: 0 auto;
+  position: relative;
+}
+
+.services-hero__badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 12px 6px 8px;
+  border-radius: 999px;
+  background: var(--brand-paper-soft);
+  border: 1px solid var(--brand-border);
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--brand-ink-mute);
+}
+
+.services-hero__badge-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 999px;
+  background: var(--brand-grad);
+  flex-shrink: 0;
+}
+
+.services-hero__title {
+  font-size: 80px;
+  margin-top: 22px;
+  letter-spacing: -0.035em;
+  font-weight: 800;
+  color: var(--brand-ink);
+}
+
+.services-hero__title-gradient {
+  background: var(--brand-grad);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.services-hero__desc {
+  margin-top: 26px;
+  font-size: 19px;
+  color: var(--brand-ink-mute);
+  max-width: 640px;
+  line-height: 1.55;
+}
+
+/* ── Filters ──────────────────────────────────────── */
+.services-filters {
+  padding: 0 64px 24px;
+}
+
+.services-filters__container {
+  max-width: 1240px;
+  margin: 0 auto;
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.services-filters__btn {
+  padding: 10px 18px;
+  border-radius: 999px;
+  font-size: 13px;
+  font-weight: 500;
+  background: #fff;
+  color: var(--brand-ink);
+  border: 1px solid var(--brand-border);
+  cursor: pointer;
+  transition: all 0.15s;
+}
+
+.services-filters__btn--active {
+  background: var(--brand-ink);
+  color: #fff;
+  border-color: var(--brand-ink);
+}
+
+/* ── Grid ─────────────────────────────────────────── */
+.services-grid {
+  padding: 24px 64px 96px;
+}
+
+.services-grid__container {
+  max-width: 1240px;
+  margin: 0 auto;
+}
+
+.services-grid__items {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+}
+
+/* ── Card ─────────────────────────────────────────── */
+.services-card {
+  padding: 32px;
+  border-radius: 14px;
+  cursor: pointer;
+  background: #fff;
+  border: 1px solid var(--brand-border);
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.2s, box-shadow 0.2s, border-color 0.2s;
+}
+
+.services-card:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--brand-shadow-lg);
+  border-color: var(--brand-paper-edge);
+}
+
+.services-card__header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+}
+
+.services-card__icon {
+  width: 52px;
+  height: 52px;
+  border-radius: 12px;
+  background: var(--brand-grad-soft);
+  color: var(--brand-purple);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.services-card__tag {
+  font-size: 11px;
+  font-weight: 600;
+  padding: 4px 10px;
+  border-radius: 999px;
+  background: var(--brand-paper-soft);
+  color: var(--brand-ink-mute);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.services-card__name {
+  font-size: 20px;
+  font-weight: 700;
+  margin-top: 24px;
+  letter-spacing: -0.02em;
+  color: var(--brand-ink);
+}
+
+.services-card__desc {
+  margin-top: 10px;
+  font-size: 14px;
+  color: var(--brand-ink-mute);
+  line-height: 1.6;
+  flex: 1;
+}
+
+.services-card__link {
+  margin-top: 24px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--brand-ink);
+}
+
+/* ── Responsive ───────────────────────────────────── */
+@media (max-width: 1023px) {
+  .services-grid__items { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 767px) {
+  .services-hero    { padding: 40px 20px 32px; }
+  .services-filters { padding: 0 20px 20px; }
+  .services-grid    { padding: 16px 20px 64px; }
+
+  .services-hero__title { font-size: 44px; }
+  .services-hero__desc  { font-size: 16px; }
+  .services-grid__items { grid-template-columns: 1fr; }
+}

@@ -2,36 +2,17 @@ import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { updateField, submitForm } from '../../store/slices/contactSlice';
-import NavBar from '../../components/layout/NavBar';
-import Footer from '../../components/layout/Footer';
+import NavBar from '../../components/layout/NavBar/NavBar';
+import Footer from '../../components/layout/Footer/Footer';
 import { Icons } from '../../components/ui/Icons';
-import { BRAND } from '../../constants/brand';
-import { useResponsive } from '../../hooks/useResponsive';
+import InputField from './InputField/InputField';
+import './Contact.css';
 
-function InputField({ label, fieldKey, type = 'text', placeholder = '' }) {
-  const dispatch = useDispatch();
-  const value = useSelector(s => s.contact.form[fieldKey]);
-
-  return (
-    <label style={{ display: 'flex', flexDirection: 'column', gap: 8 }}>
-      <span style={{ fontSize: 13, fontWeight: 500, color: BRAND.ink }}>{label}</span>
-      <input
-        type={type}
-        value={value}
-        placeholder={placeholder}
-        onChange={(e) => dispatch(updateField({ field: fieldKey, value: e.target.value }))}
-        style={{
-          padding: '13px 14px', borderRadius: 10, fontSize: 15,
-          background: '#fff', border: `1px solid ${BRAND.border}`,
-          fontFamily: BRAND.body, color: BRAND.ink, outline: 'none',
-          transition: 'border-color .15s, box-shadow .15s',
-        }}
-        onFocus={(e) => { e.currentTarget.style.borderColor = BRAND.purple; e.currentTarget.style.boxShadow = `0 0 0 3px ${BRAND.purple}22`; }}
-        onBlur={(e) => { e.currentTarget.style.borderColor = BRAND.border; e.currentTarget.style.boxShadow = 'none'; }}
-      />
-    </label>
-  );
-}
+const CONTACT_INFO = [
+  { icon: 'Mail',  label: 'info@appnitytechnologies.com', sub: 'For new project inquiries' },
+  { icon: 'Phone', label: '+91 XXXXX XXXXX',              sub: 'Mon–Fri, 10:00–18:00 IST' },
+  { icon: 'Pin',   label: 'India · Serving Globally',     sub: 'Remote-first, worldwide delivery' },
+];
 
 export default function ContactPage() {
   const navigate = useNavigate();
@@ -40,7 +21,6 @@ export default function ContactPage() {
   const sent = useSelector(s => s.contact.sent);
   const [submitting, setSubmitting] = useState(false);
   const [error, setError] = useState('');
-  const { isMobile } = useResponsive();
 
   const valid = form.name.trim().length > 1
     && /\S+@\S+\.\S+/.test(form.email)
@@ -78,130 +58,82 @@ export default function ContactPage() {
     <>
       <NavBar />
 
-      <section style={{ padding: isMobile ? '32px 20px 48px' : '40px 64px 64px' }}>
-        <div style={{
-          maxWidth: 1240, margin: '0 auto',
-          display: 'grid',
-          gridTemplateColumns: isMobile ? '1fr' : '1fr 1.1fr',
-          gap: isMobile ? 40 : 64,
-          alignItems: 'flex-start',
-        }}>
+      <section className="contact">
+        <div className="contact__grid">
           {/* Left info */}
-          <div style={{ position: isMobile ? 'static' : 'sticky', top: 100 }}>
-            <div style={{
-              display: 'inline-flex', alignItems: 'center', gap: 8,
-              padding: '6px 12px 6px 8px', borderRadius: 999,
-              background: BRAND.paperSoft, border: `1px solid ${BRAND.border}`,
-              fontSize: 12, fontWeight: 500, color: BRAND.inkMute,
-            }}>
-              <span style={{ width: 6, height: 6, borderRadius: 999, background: BRAND.grad }} /> Get in touch
+          <div className="contact__sidebar">
+            <div className="contact__badge">
+              <span className="contact__badge-dot" />
+              Get in touch
             </div>
-            <h1 style={{ fontSize: isMobile ? 44 : 64, marginTop: 22, letterSpacing: '-0.035em', fontWeight: 800, fontFamily: BRAND.display, color: BRAND.ink }}>
+            <h1 className="contact__title">
               Tell us about<br />
-              <span style={{ background: BRAND.grad, WebkitBackgroundClip: 'text', backgroundClip: 'text', color: 'transparent' }}>your project.</span>
+              <span className="contact__title-gradient">your project.</span>
             </h1>
-            <p style={{ marginTop: 22, fontSize: 17, color: BRAND.inkMute, lineHeight: 1.6, maxWidth: 460 }}>
+            <p className="contact__desc">
               We reply to every inquiry within 24 hours. The first conversation is a
               free scoping call — no pressure, just a clear plan for your project.
             </p>
-            <div style={{ marginTop: 36, display: 'flex', flexDirection: 'column', gap: 16 }}>
-              {[
-                { Icon: Icons.Mail,  l: 'info@appnitytechnologies.com', s: 'For new project inquiries' },
-                { Icon: Icons.Phone, l: '+91 XXXXX XXXXX',              s: 'Mon–Fri, 10:00–18:00 IST' },
-                { Icon: Icons.Pin,   l: 'India · Serving Globally',     s: 'Remote-first, worldwide delivery' },
-              ].map((c, i) => (
-                <div key={i} style={{
-                  display: 'flex', alignItems: 'center', gap: 14, padding: '16px 18px',
-                  borderRadius: 12, background: '#fff', border: `1px solid ${BRAND.border}`,
-                }}>
-                  <div style={{
-                    width: 38, height: 38, borderRadius: 10,
-                    background: BRAND.gradSoft, color: BRAND.purple,
-                    display: 'flex', alignItems: 'center', justifyContent: 'center',
-                  }}>
-                    <c.Icon width="18" height="18" />
+            <div className="contact__info-list">
+              {CONTACT_INFO.map(c => {
+                const I = Icons[c.icon];
+                return (
+                  <div key={c.label} className="contact__info-item">
+                    <div className="contact__info-icon">
+                      <I width="18" height="18" />
+                    </div>
+                    <div>
+                      <div className="contact__info-label">{c.label}</div>
+                      <div className="contact__info-sub">{c.sub}</div>
+                    </div>
                   </div>
-                  <div>
-                    <div style={{ fontSize: 14.5, fontWeight: 600, color: BRAND.ink }}>{c.l}</div>
-                    <div style={{ fontSize: 12.5, color: BRAND.inkMute, marginTop: 2 }}>{c.s}</div>
-                  </div>
-                </div>
-              ))}
+                );
+              })}
             </div>
           </div>
 
           {/* Right form */}
-          <div style={{
-            padding: isMobile ? 24 : 40, borderRadius: 20,
-            background: '#fff', border: `1px solid ${BRAND.border}`, boxShadow: BRAND.shadowMd,
-          }}>
+          <div className="contact__form">
             {!sent ? (
               <>
-                <h2 style={{ fontSize: 28, fontFamily: BRAND.display, fontWeight: 700, color: BRAND.ink }}>Project inquiry</h2>
-                <p style={{ marginTop: 8, fontSize: 14, color: BRAND.inkMute }}>
+                <h2 className="contact__form-title">Project inquiry</h2>
+                <p className="contact__form-desc">
                   Fields marked * are required. We respond within one business day.
                 </p>
 
-                <div style={{ display: 'grid', gridTemplateColumns: isMobile ? '1fr' : '1fr 1fr', gap: 16, marginTop: 28 }}>
+                <div className="contact__form-row">
                   <InputField label="Your name *"  fieldKey="name"  type="text"  placeholder="Jane Doe" />
                   <InputField label="Work email *" fieldKey="email" type="email" placeholder="jane@company.com" />
                 </div>
 
-                <div style={{ marginTop: 16 }}>
+                <div className="contact__form-field">
                   <InputField label="Company" fieldKey="company" type="text" placeholder="Acme Inc." />
                 </div>
 
-                <label style={{ display: 'flex', flexDirection: 'column', gap: 8, marginTop: 16 }}>
-                  <span style={{ fontSize: 13, fontWeight: 500, color: BRAND.ink }}>Tell us about the project *</span>
+                <label className="contact__textarea-label">
+                  <span className="contact__textarea-label-text">Tell us about the project *</span>
                   <textarea
+                    className="contact__textarea"
                     value={form.message}
                     onChange={(e) => dispatch(updateField({ field: 'message', value: e.target.value }))}
                     placeholder="What are you trying to build, who is it for, and what's the timeline?"
                     rows={5}
-                    style={{
-                      padding: '14px 14px', borderRadius: 10, fontSize: 15,
-                      background: '#fff', border: `1px solid ${BRAND.border}`,
-                      fontFamily: BRAND.body, color: BRAND.ink, outline: 'none',
-                      resize: 'vertical', minHeight: 140,
-                      transition: 'border-color .15s, box-shadow .15s',
-                    }}
-                    onFocus={(e) => { e.currentTarget.style.borderColor = BRAND.purple; e.currentTarget.style.boxShadow = `0 0 0 3px ${BRAND.purple}22`; }}
-                    onBlur={(e) => { e.currentTarget.style.borderColor = BRAND.border; e.currentTarget.style.boxShadow = 'none'; }}
                   />
                 </label>
 
-                <div style={{ display: 'flex', gap: 10, marginTop: 18, padding: 14, borderRadius: 10, background: BRAND.paperSoft }}>
-                  <Icons.Shield width="18" height="18" style={{ color: BRAND.purple, flexShrink: 0, marginTop: 1 }} />
-                  <div style={{ fontSize: 13, color: BRAND.inkMute, lineHeight: 1.5 }}>
+                <div className="contact__disclaimer">
+                  <Icons.Shield width="18" height="18" className="contact__disclaimer-icon" />
+                  <div className="contact__disclaimer-text">
                     We treat every message as confidential. Your information is never shared with third parties.
                   </div>
                 </div>
 
-                {error && (
-                  <div style={{
-                    marginTop: 14, padding: '12px 16px', borderRadius: 10,
-                    background: '#FFF3F3', border: '1px solid #FFCCCC',
-                    fontSize: 13, color: '#CC3333',
-                  }}>
-                    {error}
-                  </div>
-                )}
+                {error && <div className="contact__error">{error}</div>}
 
                 <button
+                  className="contact__submit-btn"
                   onClick={handleSend}
                   disabled={!valid || submitting}
-                  style={{
-                    display: 'inline-flex', alignItems: 'center', justifyContent: 'center', gap: 8,
-                    marginTop: 24, padding: '15px 24px', borderRadius: 10, border: 0,
-                    fontSize: 15, fontWeight: 600, width: '100%',
-                    color: '#fff', background: BRAND.grad, fontFamily: BRAND.body,
-                    boxShadow: BRAND.shadowGlow,
-                    opacity: valid && !submitting ? 1 : 0.5,
-                    cursor: valid && !submitting ? 'pointer' : 'not-allowed',
-                    transition: 'transform .15s, opacity .15s',
-                  }}
-                  onMouseEnter={(e) => { if (valid && !submitting) e.currentTarget.style.transform = 'translateY(-1px)'; }}
-                  onMouseLeave={(e) => { e.currentTarget.style.transform = ''; }}
                 >
                   {submitting
                     ? 'Sending…'
@@ -210,31 +142,15 @@ export default function ContactPage() {
                 </button>
               </>
             ) : (
-              <div style={{ textAlign: 'center', padding: '40px 0' }}>
-                <div style={{
-                  width: 64, height: 64, borderRadius: 16, margin: '0 auto',
-                  background: BRAND.grad, color: '#fff',
-                  display: 'flex', alignItems: 'center', justifyContent: 'center',
-                  boxShadow: BRAND.shadowGlow,
-                }}>
+              <div className="contact__success">
+                <div className="contact__success-icon">
                   <Icons.Check width="32" height="32" />
                 </div>
-                <h2 style={{ fontSize: 28, marginTop: 24, fontFamily: BRAND.display, fontWeight: 700, color: BRAND.ink }}>
-                  Thanks, {form.name.split(' ')[0]}!
-                </h2>
-                <p style={{ marginTop: 12, fontSize: 16, color: BRAND.inkMute, maxWidth: 420, margin: '12px auto 0' }}>
-                  We&apos;ll be in touch at <strong style={{ color: BRAND.ink }}>{form.email}</strong> within one business day.
+                <h2 className="contact__success-title">Thanks, {form.name.split(' ')[0]}!</h2>
+                <p className="contact__success-desc">
+                  We&apos;ll be in touch at <strong>{form.email}</strong> within one business day.
                 </p>
-                <button
-                  onClick={() => navigate('/portfolio')}
-                  style={{
-                    display: 'inline-flex', alignItems: 'center', gap: 8,
-                    marginTop: 24, padding: '12px 20px', borderRadius: 10,
-                    fontSize: 14, fontWeight: 600, cursor: 'pointer',
-                    color: BRAND.ink, background: 'transparent',
-                    border: `1px solid ${BRAND.border}`, fontFamily: BRAND.body,
-                  }}
-                >
+                <button className="contact__success-btn" onClick={() => navigate('/portfolio')}>
                   View our portfolio
                 </button>
               </div>

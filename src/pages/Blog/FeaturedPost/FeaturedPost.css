@@ -1,0 +1,135 @@
+.featured-post {
+  border-radius: 20px;
+  overflow: hidden;
+  background: #fff;
+  border: 1px solid var(--brand-border);
+  box-shadow: var(--brand-shadow-lg);
+  display: grid;
+  grid-template-columns: 1fr 1.1fr;
+}
+
+.featured-post__visual {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 340px;
+  position: relative;
+  overflow: hidden;
+  padding: 48px;
+}
+
+.featured-post__visual-blob {
+  position: absolute;
+  top: -60px;
+  right: -60px;
+  width: 240px;
+  height: 240px;
+  border-radius: 50%;
+  filter: blur(40px);
+}
+
+.featured-post__visual-inner {
+  position: relative;
+  text-align: center;
+}
+
+.featured-post__visual-icon {
+  width: 80px;
+  height: 80px;
+  border-radius: 20px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+}
+
+.featured-post__visual-label {
+  margin-top: 24px;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.featured-post__content {
+  padding: 44px 48px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.featured-post__meta {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+}
+
+.featured-post__meta-date,
+.featured-post__meta-sep,
+.featured-post__meta-read {
+  font-size: 12px;
+  color: var(--brand-ink-subtle);
+}
+
+.featured-post__title {
+  font-size: 32px;
+  font-weight: 700;
+  letter-spacing: -0.025em;
+  line-height: 1.2;
+  color: var(--brand-ink);
+}
+
+.featured-post__excerpt {
+  margin-top: 16px;
+  font-size: 15px;
+  color: var(--brand-ink-mute);
+  line-height: 1.65;
+}
+
+.featured-post__footer {
+  margin-top: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.featured-post__btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 18px;
+  border-radius: 10px;
+  border: 0;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  color: #fff;
+  transition: transform 0.15s;
+}
+
+.featured-post__btn:hover {
+  transform: translateY(-1px);
+}
+
+@media (max-width: 767px) {
+  .featured-post {
+    grid-template-columns: 1fr;
+  }
+
+  .featured-post__visual {
+    min-height: 180px;
+  }
+
+  .featured-post__content {
+    padding: 28px 24px;
+  }
+
+  .featured-post__title {
+    font-size: 24px;
+  }
+}

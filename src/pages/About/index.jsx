@@ -1,49 +1,50 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import NavBar from '../../components/layout/NavBar';
-import CtaBanner from '../../components/layout/CtaBanner';
-import Footer from '../../components/layout/Footer';
-import FAQItem from './FAQItem';
+import NavBar from '../../components/layout/NavBar/NavBar';
+import CtaBanner from '../../components/layout/CtaBanner/CtaBanner';
+import Footer from '../../components/layout/Footer/Footer';
+import FAQItem from './FAQItem/FAQItem';
 import { Icons } from '../../components/ui/Icons';
-import { BRAND } from '../../constants/brand';
 import { LEADERSHIP_DOMAINS, VALUES, FAQ } from '../../constants/team';
-import { useResponsive } from '../../hooks/useResponsive';
+import './About.css';
 
+const MISSION_CARDS = [
+  {
+    eyebrow: 'Our mission',
+    heading: 'Empowering Businesses Digitally.',
+    body: 'We partner with businesses to harness the power of technology — building intuitive mobile apps, robust web platforms, and scalable cloud solutions that accelerate growth and deliver measurable results.',
+    dark: false,
+  },
+  {
+    eyebrow: 'Our vision',
+    heading: 'A World Powered by Innovation.',
+    body: "We envision a world where every business, regardless of size, can leverage cutting-edge digital solutions to compete globally. Appnity is committed to making that future possible — one product at a time.",
+    dark: true,
+  },
+];
 
 export default function AboutPage() {
   const navigate = useNavigate();
   const [openFaq, setOpenFaq] = useState(0);
-  const { isMobile, isTablet } = useResponsive();
 
   return (
     <>
       <NavBar />
 
       {/* Hero */}
-      <section style={{ padding: isMobile ? '40px 20px 60px' : '72px 64px 96px', position: 'relative', overflow: 'hidden' }}>
-        <div className="ap-dot-bg" style={{
-          position: 'absolute', inset: 0,
-          maskImage: 'radial-gradient(ellipse at 30% 0%, #000 25%, transparent 70%)',
-          WebkitMaskImage: 'radial-gradient(ellipse at 30% 0%, #000 25%, transparent 70%)',
-        }} />
-        <div style={{ maxWidth: 980, margin: '0 auto', position: 'relative' }}>
-          <div style={{
-            display: 'inline-flex', alignItems: 'center', gap: 8,
-            padding: '6px 12px 6px 8px', borderRadius: 999,
-            background: BRAND.paperSoft, border: `1px solid ${BRAND.border}`,
-            fontSize: 12, fontWeight: 500, color: BRAND.inkMute,
-          }}>
-            <span style={{ width: 6, height: 6, borderRadius: 999, background: BRAND.grad }} />
+      <section className="about-hero">
+        <div className="ap-dot-bg about-hero__dots" />
+        <div className="about-hero__container">
+          <div className="about-hero__badge">
+            <span className="about-hero__badge-dot" />
             About Appnity
           </div>
-          <h1 style={{ fontSize: isMobile ? 48 : 88, marginTop: 24, letterSpacing: '-0.035em', lineHeight: 1.0, fontWeight: 800, fontFamily: BRAND.display, color: BRAND.ink }}>
+          <h1 className="about-hero__title">
             Driven by Innovation,<br />
             Committed to<br />
-            <span style={{ background: BRAND.grad, WebkitBackgroundClip: 'text', backgroundClip: 'text', color: 'transparent' }}>
-              Excellence.
-            </span>
+            <span className="about-hero__title-gradient">Excellence.</span>
           </h1>
-          <p style={{ marginTop: 32, fontSize: isMobile ? 16 : 20, color: BRAND.inkMute, maxWidth: 700, lineHeight: 1.55 }}>
+          <p className="about-hero__desc">
             Appnity Technologies is a global digital solutions company helping businesses of all
             sizes — from startups to enterprises — build powerful mobile apps, web platforms, and
             scalable cloud infrastructure. With 8+ years of experience and 100+ projects delivered,
@@ -53,78 +54,47 @@ export default function AboutPage() {
       </section>
 
       {/* Mission & Vision */}
-      <section style={{ padding: isMobile ? '0 20px 48px' : '0 64px 96px' }}>
-        <div style={{ maxWidth: 1240, margin: '0 auto', display: 'grid', gridTemplateColumns: isMobile ? '1fr' : '1fr 1fr', gap: 16 }}>
-          {[
-            { eyebrow: 'Our mission', heading: 'Empowering Businesses Digitally.',
-              body: 'We partner with businesses to harness the power of technology — building intuitive mobile apps, robust web platforms, and scalable cloud solutions that accelerate growth and deliver measurable results.',
-              dark: false },
-            { eyebrow: 'Our vision', heading: 'A World Powered by Innovation.',
-              body: "We envision a world where every business, regardless of size, can leverage cutting-edge digital solutions to compete globally. Appnity is committed to making that future possible — one product at a time.",
-              dark: true },
-          ].map((c, i) => (
-            <div key={i} style={{
-              padding: isMobile ? 28 : 48, borderRadius: 20, position: 'relative', overflow: 'hidden',
-              background: i === 0 ? BRAND.paperSoft : BRAND.ink,
-              color: i === 0 ? BRAND.ink : '#fff',
-              border: `1px solid ${i === 0 ? BRAND.border : 'rgba(255,255,255,0.08)'}`,
-            }}>
-              {i === 1 && (
-                <div style={{
-                  position: 'absolute', top: -100, right: -80, width: 320, height: 320, borderRadius: '50%',
-                  background: 'radial-gradient(circle, rgba(122,76,255,0.45), transparent 60%)', filter: 'blur(20px)',
-                }} />
-              )}
-              <div style={{
-                display: 'inline-flex', alignItems: 'center', gap: 8, position: 'relative',
-                padding: '6px 12px 6px 8px', borderRadius: 999,
-                background: i === 1 ? 'rgba(255,255,255,0.06)' : '#fff',
-                border: `1px solid ${i === 1 ? 'rgba(255,255,255,0.1)' : BRAND.border}`,
-                fontSize: 12, fontWeight: 500,
-                color: i === 1 ? 'rgba(255,255,255,0.85)' : BRAND.inkMute,
-              }}>
-                <span style={{ width: 6, height: 6, borderRadius: 999, background: BRAND.grad }} /> {c.eyebrow}
+      <section className="about-mission">
+        <div className="about-mission__grid">
+          {MISSION_CARDS.map((c) => (
+            <div
+              key={c.eyebrow}
+              className={`about-mission__card ${c.dark ? 'about-mission__card--dark' : 'about-mission__card--light'}`}
+            >
+              {c.dark && <div className="about-mission__card-glow" />}
+              <div className={`about-mission__badge ${c.dark ? 'about-mission__badge--dark' : 'about-mission__badge--light'}`}>
+                <span className="about-mission__badge-dot" />
+                {c.eyebrow}
               </div>
-              <h2 style={{ fontSize: isMobile ? 28 : 40, marginTop: 22, color: 'inherit', position: 'relative', fontFamily: BRAND.display, fontWeight: 700 }}>{c.heading}</h2>
-              <p style={{
-                marginTop: 18, fontSize: 16, lineHeight: 1.65, position: 'relative',
-                color: i === 0 ? BRAND.inkMute : 'rgba(255,255,255,0.7)', maxWidth: 460,
-              }}>{c.body}</p>
+              <h2 className="about-mission__card-title">{c.heading}</h2>
+              <p className="about-mission__card-desc">{c.body}</p>
             </div>
           ))}
         </div>
       </section>
 
       {/* Values */}
-      <section style={{ padding: isMobile ? '48px 20px' : '72px 64px', background: BRAND.paperSoft, borderTop: `1px solid ${BRAND.border}`, borderBottom: `1px solid ${BRAND.border}` }}>
-        <div style={{ maxWidth: 1240, margin: '0 auto' }}>
-          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-end', gap: 32, marginBottom: 48 }}>
+      <section className="about-values">
+        <div className="about-values__container">
+          <div className="about-values__header">
             <div>
-              <div style={{
-                display: 'inline-flex', alignItems: 'center', gap: 8,
-                padding: '6px 12px 6px 8px', borderRadius: 999,
-                background: '#fff', border: `1px solid ${BRAND.border}`,
-                fontSize: 12, fontWeight: 500, color: BRAND.inkMute,
-              }}>
-                <span style={{ width: 6, height: 6, borderRadius: 999, background: BRAND.grad }} /> What we believe
+              <div className="about-values__badge">
+                <span className="about-values__badge-dot" />
+                What we believe
               </div>
-              <h2 style={{ fontSize: isMobile ? 34 : 48, marginTop: 18, fontFamily: BRAND.display, fontWeight: 700, letterSpacing: '-0.025em', color: BRAND.ink }}>Our Core Values.</h2>
+              <h2 className="about-values__title">Our Core Values.</h2>
             </div>
           </div>
-          <div style={{ display: 'grid', gridTemplateColumns: isMobile ? 'repeat(2, 1fr)' : 'repeat(4, 1fr)', gap: 16 }}>
+          <div className="about-values__grid">
             {VALUES.map(v => {
               const I = Icons[v.icon];
               return (
-                <div key={v.t} style={{ padding: isMobile ? 20 : 28, borderRadius: 14, background: '#fff', border: `1px solid ${BRAND.border}` }}>
-                  <div style={{
-                    width: 42, height: 42, borderRadius: 10,
-                    background: BRAND.gradSoft, color: BRAND.purple,
-                    display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: 18,
-                  }}>
+                <div key={v.t} className="about-values__card">
+                  <div className="about-values__card-icon">
                     <I width="20" height="20" />
                   </div>
-                  <div style={{ fontSize: 15, fontWeight: 600, color: BRAND.ink }}>{v.t}</div>
-                  <p style={{ marginTop: 10, fontSize: 13, color: BRAND.inkMute, lineHeight: 1.55 }}>{v.d}</p>
+                  <div className="about-values__card-title">{v.t}</div>
+                  <p className="about-values__card-desc">{v.d}</p>
                 </div>
               );
             })}
@@ -133,55 +103,35 @@ export default function AboutPage() {
       </section>
 
       {/* Leadership */}
-      <section style={{ padding: isMobile ? '48px 20px' : '96px 64px' }}>
-        <div style={{ maxWidth: 1240, margin: '0 auto' }}>
-          <div style={{ marginBottom: 48 }}>
-            <div style={{
-              display: 'inline-flex', alignItems: 'center', gap: 8,
-              padding: '6px 12px 6px 8px', borderRadius: 999,
-              background: BRAND.paperSoft, border: `1px solid ${BRAND.border}`,
-              fontSize: 12, fontWeight: 500, color: BRAND.inkMute,
-            }}>
-              <span style={{ width: 6, height: 6, borderRadius: 999, background: BRAND.grad }} /> Leadership
+      <section className="about-leadership">
+        <div className="about-leadership__container">
+          <div className="about-leadership__header">
+            <div className="about-leadership__badge">
+              <span className="about-leadership__badge-dot" />
+              Leadership
             </div>
-            <h2 style={{ fontSize: isMobile ? 34 : 48, marginTop: 18, fontFamily: BRAND.display, fontWeight: 700, letterSpacing: '-0.025em', color: BRAND.ink }}>
+            <h2 className="about-leadership__title">
               Deep expertise across<br />every discipline.
             </h2>
-            <p style={{ marginTop: 16, fontSize: 16, color: BRAND.inkMute, lineHeight: 1.6, maxWidth: 560 }}>
-              Every function is led by seasoned specialists — not generalists. Decades of combined experience across strategy, technology, design, and operations means your project is in expert hands from day one.
+            <p className="about-leadership__desc">
+              Every function is led by seasoned specialists — not generalists. Decades of combined
+              experience across strategy, technology, design, and operations means your project is
+              in expert hands from day one.
             </p>
           </div>
-          <div style={{ display: 'grid', gridTemplateColumns: isMobile ? 'repeat(2, 1fr)' : 'repeat(4, 1fr)', gap: 16 }}>
+          <div className="about-leadership__grid">
             {LEADERSHIP_DOMAINS.map((d) => {
               const I = Icons[d.icon];
               return (
-                <div
-                  key={d.t}
-                  style={{
-                    padding: isMobile ? 18 : 24, borderRadius: 16,
-                    background: '#fff', border: `1px solid ${BRAND.border}`,
-                    display: 'flex', flexDirection: 'column',
-                    transition: 'transform .2s, box-shadow .2s',
-                  }}
-                  onMouseEnter={(e) => { e.currentTarget.style.transform = 'translateY(-2px)'; e.currentTarget.style.boxShadow = BRAND.shadowLg; }}
-                  onMouseLeave={(e) => { e.currentTarget.style.transform = ''; e.currentTarget.style.boxShadow = ''; }}
-                >
-                  <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: 14 }}>
-                    <div style={{
-                      width: 42, height: 42, borderRadius: 11,
-                      background: BRAND.gradSoft, color: BRAND.purple,
-                      display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0,
-                    }}>
+                <div key={d.t} className="about-leadership__card">
+                  <div className="about-leadership__card-top">
+                    <div className="about-leadership__card-icon">
                       <I width="19" height="19" />
                     </div>
-                    <span style={{
-                      fontSize: 11, fontWeight: 700, letterSpacing: '0.01em',
-                      color: BRAND.purple, background: BRAND.gradSoft,
-                      padding: '3px 8px', borderRadius: 999,
-                    }}>{d.yrs}</span>
+                    <span className="about-leadership__card-years">{d.yrs}</span>
                   </div>
-                  <div style={{ fontSize: isMobile ? 13 : 14, fontWeight: 700, color: BRAND.ink, lineHeight: 1.3 }}>{d.t}</div>
-                  <p style={{ marginTop: 8, fontSize: 12, color: BRAND.inkMute, lineHeight: 1.6, flexGrow: 1 }}>{d.d}</p>
+                  <div className="about-leadership__card-title">{d.t}</div>
+                  <p className="about-leadership__card-desc">{d.d}</p>
                 </div>
               );
             })}
@@ -190,42 +140,30 @@ export default function AboutPage() {
       </section>
 
       {/* FAQ */}
-      <section style={{ padding: isMobile ? '48px 20px' : '72px 64px', background: BRAND.paperSoft, borderTop: `1px solid ${BRAND.border}` }}>
-        <div style={{
-          maxWidth: 1240, margin: '0 auto',
-          display: 'grid', gridTemplateColumns: isMobile ? '1fr' : '1fr 1.4fr',
-          gap: isMobile ? 32 : 80, alignItems: 'flex-start',
-        }}>
-          <div style={{ position: isMobile ? 'static' : 'sticky', top: 100 }}>
-            <div style={{
-              display: 'inline-flex', alignItems: 'center', gap: 8,
-              padding: '6px 12px 6px 8px', borderRadius: 999,
-              background: '#fff', border: `1px solid ${BRAND.border}`,
-              fontSize: 12, fontWeight: 500, color: BRAND.inkMute,
-            }}>
-              <span style={{ width: 6, height: 6, borderRadius: 999, background: BRAND.grad }} /> Frequently asked
+      <section className="about-faq">
+        <div className="about-faq__container">
+          <div className="about-faq__sidebar">
+            <div className="about-faq__badge">
+              <span className="about-faq__badge-dot" />
+              Frequently asked
             </div>
-            <h2 style={{ fontSize: isMobile ? 32 : 48, marginTop: 18, letterSpacing: '-0.03em', fontFamily: BRAND.display, fontWeight: 700, color: BRAND.ink }}>
-              Questions we get asked most.
-            </h2>
-            <p style={{ marginTop: 18, fontSize: 16, color: BRAND.inkMute, lineHeight: 1.6, maxWidth: 360 }}>
+            <h2 className="about-faq__title">Questions we get asked most.</h2>
+            <p className="about-faq__subtitle">
               Don&apos;t see your question? Reach out — we usually reply within a few hours.
             </p>
-            <button
-              onClick={() => navigate('/contact')}
-              style={{
-                display: 'inline-flex', alignItems: 'center', gap: 8,
-                marginTop: 28, padding: '12px 20px', borderRadius: 10, border: 0,
-                fontSize: 14, fontWeight: 600, cursor: 'pointer',
-                color: '#fff', background: BRAND.ink, fontFamily: BRAND.body,
-              }}
-            >
+            <button className="about-faq__btn" onClick={() => navigate('/contact')}>
               Ask a question <Icons.Arrow width="14" height="14" />
             </button>
           </div>
           <div>
             {FAQ.map((f, i) => (
-              <FAQItem key={f.q} q={f.q} a={f.a} open={openFaq === i} onToggle={() => setOpenFaq(openFaq === i ? -1 : i)} />
+              <FAQItem
+                key={f.q}
+                q={f.q}
+                a={f.a}
+                open={openFaq === i}
+                onToggle={() => setOpenFaq(openFaq === i ? -1 : i)}
+              />
             ))}
           </div>
         </div>

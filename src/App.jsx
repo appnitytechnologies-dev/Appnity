@@ -7,7 +7,7 @@ import ServiceDetailPage from './pages/ServiceDetail';
 import PortfolioPage from './pages/Portfolio';
 import ContactPage from './pages/Contact';
 import BlogPage from './pages/Blog';
-import PostDetail from './pages/Blog/PostDetail';
+import PostDetail from './pages/Blog/PostDetail/PostDetail';
 
 function ScrollToTop() {
   const { pathname } = useLocation();

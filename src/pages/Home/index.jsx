@@ -1,13 +1,13 @@
-import NavBar from '../../components/layout/NavBar';
-import CtaBanner from '../../components/layout/CtaBanner';
-import Footer from '../../components/layout/Footer';
-import HeroSection from './HeroSection';
-import LogoStrip from './LogoStrip';
-import ServicesGrid from './ServicesGrid';
-import AboutPreview from './AboutPreview';
-import ProcessSection from './ProcessSection';
-import WhyUs from './WhyUs';
-import Testimonials from './Testimonials';
+import NavBar from '../../components/layout/NavBar/NavBar';
+import CtaBanner from '../../components/layout/CtaBanner/CtaBanner';
+import Footer from '../../components/layout/Footer/Footer';
+import HeroSection from './HeroSection/HeroSection';
+import LogoStrip from './LogoStrip/LogoStrip';
+import ServicesGrid from './ServicesGrid/ServicesGrid';
+import AboutPreview from './AboutPreview/AboutPreview';
+import ProcessSection from './ProcessSection/ProcessSection';
+import WhyUs from './WhyUs/WhyUs';
+import Testimonials from './Testimonials/Testimonials';
 
 export default function HomePage() {
   return (

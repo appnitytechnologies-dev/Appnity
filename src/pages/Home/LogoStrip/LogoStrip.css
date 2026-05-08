@@ -1,0 +1,66 @@
+.logo-strip {
+  padding: 8px 64px 64px;
+}
+
+.logo-strip__container {
+  max-width: 1240px;
+  margin: 0 auto;
+}
+
+.logo-strip__label {
+  text-align: center;
+  font-size: 12px;
+  color: var(--brand-ink-subtle);
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.logo-strip__list {
+  margin-top: 24px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 32px;
+  flex-wrap: wrap;
+  opacity: 0.65;
+}
+
+.logo-strip__item {
+  font-size: 22px;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: var(--brand-ink);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.logo-strip__icon {
+  width: 18px;
+  height: 18px;
+  opacity: 0.7;
+  flex-shrink: 0;
+}
+
+.logo-strip__icon--ink    { background: var(--brand-ink); }
+.logo-strip__icon--purple { background: var(--brand-purple); }
+.logo-strip__icon--blue   { background: var(--brand-blue); }
+
+.logo-strip__icon--square { border-radius: 4px; }
+.logo-strip__icon--round  { border-radius: 9px; }
+
+@media (max-width: 767px) {
+  .logo-strip {
+    padding: 8px 20px 48px;
+  }
+
+  .logo-strip__list {
+    justify-content: center;
+    gap: 16px;
+  }
+
+  .logo-strip__item {
+    font-size: 16px;
+  }
+}
