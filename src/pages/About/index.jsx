@@ -6,15 +6,9 @@ import Footer from '../../components/layout/Footer';
 import FAQItem from './FAQItem';
 import { Icons } from '../../components/ui/Icons';
 import { BRAND } from '../../constants/brand';
-import { TEAM, VALUES, FAQ } from '../../constants/team';
+import { LEADERSHIP_DOMAINS, VALUES, FAQ } from '../../constants/team';
 import { useResponsive } from '../../hooks/useResponsive';
 
-const TEAM_BGS = [
-  'linear-gradient(135deg, #DDE5F5, #C7D0E5)',
-  'linear-gradient(135deg, #E8DEF7, #D2C4ED)',
-  'linear-gradient(135deg, #FFD9C9, #FFC2A8)',
-  'linear-gradient(135deg, #C9E5DA, #ABD3C0)',
-];
 
 export default function AboutPage() {
   const navigate = useNavigate();
@@ -138,45 +132,59 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* Team */}
+      {/* Leadership */}
       <section style={{ padding: isMobile ? '48px 20px' : '96px 64px' }}>
         <div style={{ maxWidth: 1240, margin: '0 auto' }}>
-          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-end', gap: 32, marginBottom: 48, flexWrap: 'wrap' }}>
-            <div>
-              <div style={{
-                display: 'inline-flex', alignItems: 'center', gap: 8,
-                padding: '6px 12px 6px 8px', borderRadius: 999,
-                background: BRAND.paperSoft, border: `1px solid ${BRAND.border}`,
-                fontSize: 12, fontWeight: 500, color: BRAND.inkMute,
-              }}>
-                <span style={{ width: 6, height: 6, borderRadius: 999, background: BRAND.grad }} /> Leadership
-              </div>
-              <h2 style={{ fontSize: isMobile ? 34 : 48, marginTop: 18, fontFamily: BRAND.display, fontWeight: 700, letterSpacing: '-0.025em', color: BRAND.ink }}>The people behind the work.</h2>
+          <div style={{ marginBottom: 48 }}>
+            <div style={{
+              display: 'inline-flex', alignItems: 'center', gap: 8,
+              padding: '6px 12px 6px 8px', borderRadius: 999,
+              background: BRAND.paperSoft, border: `1px solid ${BRAND.border}`,
+              fontSize: 12, fontWeight: 500, color: BRAND.inkMute,
+            }}>
+              <span style={{ width: 6, height: 6, borderRadius: 999, background: BRAND.grad }} /> Leadership
             </div>
-            <button style={{ background: 'none', border: 0, cursor: 'pointer', display: 'inline-flex', alignItems: 'center', gap: 8, fontSize: 14, fontWeight: 600, color: BRAND.ink, fontFamily: BRAND.body }}>
-              Meet the team <Icons.Arrow width="14" height="14" />
-            </button>
+            <h2 style={{ fontSize: isMobile ? 34 : 48, marginTop: 18, fontFamily: BRAND.display, fontWeight: 700, letterSpacing: '-0.025em', color: BRAND.ink }}>
+              Deep expertise across<br />every discipline.
+            </h2>
+            <p style={{ marginTop: 16, fontSize: 16, color: BRAND.inkMute, lineHeight: 1.6, maxWidth: 560 }}>
+              Every function is led by seasoned specialists — not generalists. Decades of combined experience across strategy, technology, design, and operations means your project is in expert hands from day one.
+            </p>
           </div>
           <div style={{ display: 'grid', gridTemplateColumns: isMobile ? 'repeat(2, 1fr)' : 'repeat(4, 1fr)', gap: 16 }}>
-            {TEAM.map((t, i) => (
-              <div
-                key={t.n}
-                style={{ borderRadius: 14, overflow: 'hidden', background: '#fff', border: `1px solid ${BRAND.border}`, transition: 'transform .2s, box-shadow .2s' }}
-                onMouseEnter={(e) => { e.currentTarget.style.transform = 'translateY(-2px)'; e.currentTarget.style.boxShadow = BRAND.shadowLg; }}
-                onMouseLeave={(e) => { e.currentTarget.style.transform = ''; e.currentTarget.style.boxShadow = ''; }}
-              >
-                <div style={{
-                  height: isMobile ? 140 : 220, background: TEAM_BGS[i % 4],
-                  display: 'flex', alignItems: 'center', justifyContent: 'center',
-                }}>
-                  <div style={{ fontFamily: BRAND.display, fontSize: isMobile ? 48 : 64, fontWeight: 700, color: 'rgba(11,31,58,0.45)', letterSpacing: '-0.04em' }}>{t.i}</div>
+            {LEADERSHIP_DOMAINS.map((d) => {
+              const I = Icons[d.icon];
+              return (
+                <div
+                  key={d.t}
+                  style={{
+                    padding: isMobile ? 18 : 24, borderRadius: 16,
+                    background: '#fff', border: `1px solid ${BRAND.border}`,
+                    display: 'flex', flexDirection: 'column',
+                    transition: 'transform .2s, box-shadow .2s',
+                  }}
+                  onMouseEnter={(e) => { e.currentTarget.style.transform = 'translateY(-2px)'; e.currentTarget.style.boxShadow = BRAND.shadowLg; }}
+                  onMouseLeave={(e) => { e.currentTarget.style.transform = ''; e.currentTarget.style.boxShadow = ''; }}
+                >
+                  <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: 14 }}>
+                    <div style={{
+                      width: 42, height: 42, borderRadius: 11,
+                      background: BRAND.gradSoft, color: BRAND.purple,
+                      display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0,
+                    }}>
+                      <I width="19" height="19" />
+                    </div>
+                    <span style={{
+                      fontSize: 11, fontWeight: 700, letterSpacing: '0.01em',
+                      color: BRAND.purple, background: BRAND.gradSoft,
+                      padding: '3px 8px', borderRadius: 999,
+                    }}>{d.yrs}</span>
+                  </div>
+                  <div style={{ fontSize: isMobile ? 13 : 14, fontWeight: 700, color: BRAND.ink, lineHeight: 1.3 }}>{d.t}</div>
+                  <p style={{ marginTop: 8, fontSize: 12, color: BRAND.inkMute, lineHeight: 1.6, flexGrow: 1 }}>{d.d}</p>
                 </div>
-                <div style={{ padding: '14px 16px' }}>
-                  <div style={{ fontSize: 14, fontWeight: 600, color: BRAND.ink }}>{t.n}</div>
-                  <div style={{ fontSize: 12, color: BRAND.inkMute, marginTop: 2 }}>{t.r}</div>
-                </div>
-              </div>
-            ))}
+              );
+            })}
           </div>
         </div>
       </section>

@@ -1,6 +1,5 @@
 import { useNavigate, useLocation } from 'react-router-dom';
 import NavBar from '../../components/layout/NavBar';
-import CtaBanner from '../../components/layout/CtaBanner';
 import Footer from '../../components/layout/Footer';
 import { Icons } from '../../components/ui/Icons';
 import { BRAND } from '../../constants/brand';
@@ -223,7 +222,59 @@ export default function ServiceDetailPage() {
         </div>
       </section>
 
-      <CtaBanner />
+      {/* CTA */}
+      <section style={{ padding: isMobile ? '64px 20px' : '96px 64px' }}>
+        <div style={{ maxWidth: 720, margin: '0 auto', textAlign: 'center' }}>
+          <div style={{
+            display: 'inline-flex', alignItems: 'center', gap: 8,
+            padding: '6px 12px 6px 8px', borderRadius: 999,
+            background: BRAND.paperSoft, border: `1px solid ${BRAND.border}`,
+            fontSize: 12, fontWeight: 500, color: BRAND.inkMute,
+          }}>
+            <span style={{ width: 6, height: 6, borderRadius: 999, background: BRAND.grad }} />
+            Start Your Digital Journey
+          </div>
+          <h2 style={{
+            fontSize: isMobile ? 34 : 52, marginTop: 20,
+            fontFamily: BRAND.display, fontWeight: 700,
+            letterSpacing: '-0.03em', color: BRAND.ink, lineHeight: 1.1,
+          }}>
+            Ready to start your<br />
+            <span style={{ background: BRAND.grad, WebkitBackgroundClip: 'text', backgroundClip: 'text', color: 'transparent' }}>
+              {s.name} project?
+            </span>
+          </h2>
+          <p style={{ marginTop: 18, fontSize: 17, color: BRAND.inkMute, lineHeight: 1.6, maxWidth: 500, margin: '18px auto 0' }}>
+            Tell us about your goals and we'll get back within 24 hours with a clear plan and timeline.
+          </p>
+          <div style={{ display: 'flex', gap: 12, marginTop: 32, justifyContent: 'center', flexWrap: 'wrap' }}>
+            <button
+              onClick={() => navigate('/contact')}
+              style={{
+                display: 'inline-flex', alignItems: 'center', gap: 8,
+                padding: '14px 24px', borderRadius: 10, border: 0,
+                fontSize: 14, fontWeight: 600, cursor: 'pointer',
+                color: '#fff', background: BRAND.ink, fontFamily: BRAND.body,
+                boxShadow: '0 1px 0 rgba(255,255,255,0.12) inset, 0 6px 20px rgba(11,31,58,0.18)',
+              }}
+            >
+              Get In Touch <Icons.Arrow width="14" height="14" />
+            </button>
+            <button
+              onClick={() => navigate('/portfolio')}
+              style={{
+                display: 'inline-flex', alignItems: 'center', gap: 8,
+                padding: '14px 24px', borderRadius: 10,
+                fontSize: 14, fontWeight: 600, cursor: 'pointer',
+                color: BRAND.ink, background: 'transparent',
+                border: `1px solid ${BRAND.border}`, fontFamily: BRAND.body,
+              }}
+            >
+              See Our Work
+            </button>
+          </div>
+        </div>
+      </section>
       <Footer />
     </>
   );

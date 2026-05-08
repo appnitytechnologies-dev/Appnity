@@ -1,12 +1,12 @@
-export const TEAM = [
-  { n: 'Arjun Mehta',     r: 'CEO & Co-founder',      i: 'AM' },
-  { n: 'Priya Sharma',    r: 'CTO & Co-founder',      i: 'PS' },
-  { n: 'Rahul Verma',     r: 'Head of Design',        i: 'RV' },
-  { n: 'Neha Kapoor',     r: 'Head of Engineering',   i: 'NK' },
-  { n: 'Vikram Singh',    r: 'Head of Cloud',         i: 'VS' },
-  { n: 'Deepa Nair',      r: 'Head of Marketing',     i: 'DN' },
-  { n: 'Rohan Pillai',    r: 'Head of Operations',    i: 'RP' },
-  { n: 'Sania Qureshi',   r: 'Head of Strategy',      i: 'SQ' },
+export const LEADERSHIP_DOMAINS = [
+  { icon: 'Users',   t: 'Strategic Leadership',      d: 'Executives with 12+ years steering digital product companies from early-stage through global scale.', yrs: '12+ yrs' },
+  { icon: 'Cog',     t: 'Technology & Architecture', d: 'Senior tech leadership shaping robust system design, engineering culture, and platform reliability.', yrs: '10+ yrs' },
+  { icon: 'Brush',   t: 'Product Design',            d: 'UX and design leaders crafting intuitive, high-impact experiences across mobile and web platforms.', yrs: '9+ yrs' },
+  { icon: 'Layers',  t: 'Software Engineering',      d: 'Engineering heads delivering scalable mobile, web, and backend solutions across diverse industries.', yrs: '10+ yrs' },
+  { icon: 'Cloud',   t: 'Cloud & Infrastructure',    d: 'Certified architects across AWS, GCP, and Azure building resilient, high-availability systems at scale.', yrs: '8+ yrs' },
+  { icon: 'Chart',   t: 'Marketing & Growth',        d: 'Growth strategists with proven B2B and consumer digital marketing track records across global markets.', yrs: '9+ yrs' },
+  { icon: 'Bolt',    t: 'Operations',                d: 'Operations leaders driving process excellence, on-time delivery reliability, and lasting client satisfaction.', yrs: '10+ yrs' },
+  { icon: 'Sparkle', t: 'Business Strategy',         d: 'Strategic advisors translating cross-industry insights into sustainable competitive advantage and growth.', yrs: '11+ yrs' },
 ];
 
 export const VALUES = [
