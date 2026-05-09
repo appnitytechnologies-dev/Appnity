@@ -1,3 +1,4 @@
+import SEO from '../../components/ui/SEO/SEO';
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import NavBar from '../../components/layout/NavBar/NavBar';
@@ -29,6 +30,11 @@ export default function AboutPage() {
 
   return (
     <>
+      <SEO
+        title="About Us"
+        description="Learn about Appnity Technologies — 8+ years of experience, 100+ projects delivered, and a global team of specialists across mobile, web, cloud, and design."
+        path="/about"
+      />
       <NavBar />
 
       {/* Hero */}

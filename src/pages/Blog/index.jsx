@@ -1,3 +1,4 @@
+import SEO from '../../components/ui/SEO/SEO';
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import NavBar from '../../components/layout/NavBar/NavBar';
@@ -19,6 +20,11 @@ export default function BlogPage() {
 
   return (
     <>
+      <SEO
+        title="Blog"
+        description="Insights, guides, and industry updates from the Appnity Technologies team — covering mobile development, web platforms, UI/UX design, and cloud engineering."
+        path="/blog"
+      />
       <NavBar />
 
       {/* Hero */}

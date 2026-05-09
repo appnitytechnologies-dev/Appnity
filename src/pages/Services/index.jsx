@@ -1,3 +1,4 @@
+import SEO from '../../components/ui/SEO/SEO';
 import { useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { setCategory } from '../../store/slices/servicesSlice';
@@ -16,6 +17,11 @@ export default function ServicesPage() {
 
   return (
     <>
+      <SEO
+        title="Our Services"
+        description="Appnity Technologies offers end-to-end digital services — mobile app development, web platforms, UI/UX design, and cloud infrastructure for businesses worldwide."
+        path="/services"
+      />
       <NavBar />
 
       {/* Hero */}

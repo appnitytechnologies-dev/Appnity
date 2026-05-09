@@ -1,3 +1,4 @@
+import SEO from '../../components/ui/SEO/SEO';
 import { useDispatch, useSelector } from 'react-redux';
 import { setFilter } from '../../store/slices/portfolioSlice';
 import NavBar from '../../components/layout/NavBar/NavBar';
@@ -14,6 +15,11 @@ export default function PortfolioPage() {
 
   return (
     <>
+      <SEO
+        title="Portfolio"
+        description="Explore Appnity Technologies' portfolio — mobile apps, web platforms, and design systems delivered for clients across healthcare, logistics, fintech, and more."
+        path="/portfolio"
+      />
       <NavBar />
 
       {/* Hero */}

@@ -1,3 +1,4 @@
+import SEO from '../../components/ui/SEO/SEO';
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
@@ -56,6 +57,11 @@ export default function ContactPage() {
 
   return (
     <>
+      <SEO
+        title="Contact Us"
+        description="Get in touch with Appnity Technologies. Tell us about your project and we'll reply within 24 hours. First consultation is free."
+        path="/contact"
+      />
       <NavBar />
 
       <section className="contact">
