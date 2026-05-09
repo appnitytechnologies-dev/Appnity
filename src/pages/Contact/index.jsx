@@ -1,3 +1,4 @@
+import emailjs from '@emailjs/browser';
 import SEO from '../../components/ui/SEO/SEO';
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
@@ -32,24 +33,20 @@ export default function ContactPage() {
     setSubmitting(true);
     setError('');
     try {
-      const res = await fetch('/api/contact.php', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
+      await emailjs.send(
+        'service_sonq8js',
+        'template_5wxgd7u',
+        {
           name:    form.name,
           email:   form.email,
-          company: form.company,
+          company: form.company || '—',
           message: form.message,
-        }),
-      });
-      const data = await res.json();
-      if (data.success) {
-        dispatch(submitForm());
-      } else {
-        setError(data.message || 'Something went wrong. Please try again.');
-      }
+        },
+        'aA4rCAYd9UENWKOQs'
+      );
+      dispatch(submitForm());
     } catch {
-      setError('Could not connect. Please email us directly at info@appnitytechnologies.com');
+      setError('Could not send message. Please email us directly at info@appnitytechnologies.com');
     } finally {
       setSubmitting(false);
     }
