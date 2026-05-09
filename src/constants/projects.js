@@ -1,13 +1,11 @@
 export const PROJECTS = [
-  { t: 'Northwind Health',     c: 'Mobile', d: 'Patient companion app for a hospital network',        tag: 'iOS · Android · Achut ·  React Native',  accent: '#3D6CFF' },
-  { t: 'Lumen Logistics',      c: 'Web',    d: 'Fleet ops console for 4,200 drivers',                 tag: 'Next.js · GraphQL · AWS',        accent: '#7A4CFF' },
-  { t: 'Helix Therapeutics',   c: 'Design', d: 'Brand and product system for a Series B biotech',     tag: 'Design system · Figma',          accent: '#B14CFF' },
-  { t: 'Atlas Bank',           c: 'Web',    d: 'Compliance workbench for retail banking',              tag: 'React · Postgres · Snowflake',   accent: '#0B1F3A' },
-  { t: 'Voltaic Energy',       c: 'Mobile', d: 'Installer scheduling and inventory app',              tag: 'Flutter · Firebase',              accent: '#3D6CFF' },
-  { t: 'Parsec Cybersecurity', c: 'Design', d: 'Security console redesign and design system',         tag: 'Design system · Figma',          accent: '#7A4CFF' },
-  { t: 'Greenline Mobility',   c: 'Web',    d: 'Operator dashboard for shared e-bikes',               tag: 'Next.js · TimescaleDB',          accent: '#B14CFF' },
-  { t: 'Nordic Federal',       c: 'Web',    d: 'Citizen identity portal at national scale',            tag: 'Remix · Postgres · Kubernetes',  accent: '#0B1F3A' },
-  { t: 'Civic Climate',        c: 'Mobile', d: 'Carbon tracking app for municipal staff',             tag: 'React Native · Supabase',        accent: '#3D6CFF' },
+  { t: 'P&A Global',           c: 'Web',    d: 'Pharmaceutical regulatory consulting platform for life sciences & healthcare',  tag: 'Regulatory Affairs · QMS · FDA Compliance',  accent: '#0A7B7B', img: '/portfolio/paglobal.png', url: 'https://paglobal.us/' },
+  { t: 'Stratecs',             c: 'Web',    d: 'AI-powered chromatography analytics platform for pharmaceutical labs',  tag: 'AI · ML · Pharma Analytics · Regulatory Compliance',  accent: '#1A6FBF', url: 'https://stratecs.com/' },
+  { t: 'Padgett Group',        c: 'Web',    d: 'Life sciences & pharma consulting firm specialising in QMS and regulatory compliance', tag: 'QMS · Regulatory Affairs · Inspection Readiness', accent: '#2C4A8C', url: 'https://padgettgroup.co.uk/' },
+  { t: 'Greenwood Direct',     c: 'Web',    d: 'E-commerce platform for a UK garden and outdoor products retailer', tag: 'E-commerce · Retail · UK', accent: '#3A7D44', url: 'https://www.greenwood-direct.co.uk/' },
+  { t: 'Bhoomatha Group',      c: 'Web',    d: 'Corporate web presence for a leading real estate developer in India', tag: 'Real Estate · Corporate · Web', accent: '#C47A2B', url: 'https://www.bhoomathagroup.com/' },
+  { t: 'Kalam Labs',           c: 'Web',    d: 'Startup & mentorship ecosystem platform connecting innovators and entrepreneurs', tag: 'EdTech · Startups · Mentorship', accent: '#E05C1A', url: 'https://kalamlabs.com/' },
+  { t: 'Vizag Vegetables',     c: 'Web',    d: 'Online fresh vegetables & grocery ordering platform for Visakhapatnam', tag: 'E-commerce · Grocery · React', accent: '#4CAF50', url: 'https://vizagvegetables.com/' },
 ];
 
 export const PORTFOLIO_FILTERS = ['All', 'Mobile', 'Web', 'Design'];

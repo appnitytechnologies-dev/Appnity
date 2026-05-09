@@ -10,7 +10,7 @@ import './Contact.css';
 
 const CONTACT_INFO = [
   { icon: 'Mail',  label: 'info@appnitytechnologies.com', sub: 'For new project inquiries' },
-  { icon: 'Phone', label: '+91 XXXXX XXXXX',              sub: 'Mon–Fri, 10:00–18:00 IST' },
+  { icon: 'Phone', label: '+91 96660 60167',               sub: 'Mon–Fri, 10:00–18:00 IST' },
   { icon: 'Pin',   label: 'India · Serving Globally',     sub: 'Remote-first, worldwide delivery' },
 ];
 
@@ -102,12 +102,12 @@ export default function ContactPage() {
                 </p>
 
                 <div className="contact__form-row">
-                  <InputField label="Your name *"  fieldKey="name"  type="text"  placeholder="Jane Doe" />
-                  <InputField label="Work email *" fieldKey="email" type="email" placeholder="jane@company.com" />
+                  <InputField label="Your name *"  fieldKey="name"  type="text"  placeholder="Your full name" />
+                  <InputField label="Work email *" fieldKey="email" type="email" placeholder="your@work-email.com" />
                 </div>
 
                 <div className="contact__form-field">
-                  <InputField label="Company" fieldKey="company" type="text" placeholder="Acme Inc." />
+                  <InputField label="Company" fieldKey="company" type="text" placeholder="Your company name" />
                 </div>
 
                 <label className="contact__textarea-label">

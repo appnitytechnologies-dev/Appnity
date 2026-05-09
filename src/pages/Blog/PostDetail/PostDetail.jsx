@@ -61,16 +61,8 @@ export default function PostDetail() {
           <p className="post-detail-hero__excerpt">{post.excerpt}</p>
 
           <div className="post-detail-hero__author">
-            <div
-              className="post-detail-hero__author-avatar"
-              style={{ background: `${post.accent}20`, color: post.accent }}
-            >
-              {post.init}
-            </div>
-            <div>
-              <div className="post-detail-hero__author-name">{post.author}</div>
-              <div className="post-detail-hero__author-role">{post.role} · Appnity Technologies</div>
-            </div>
+            <div className="post-detail-hero__author-dot" style={{ background: post.accent }} />
+            <span className="post-detail-hero__author-role">{post.role} · Appnity Technologies</span>
           </div>
         </div>
       </section>

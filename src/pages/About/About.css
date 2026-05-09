@@ -153,6 +153,8 @@
   max-width: 460px;
 }
 
+.about-mission__card--light .about-mission__card-title { color: var(--brand-ink); }
+.about-mission__card--dark  .about-mission__card-title { color: #fff; }
 .about-mission__card--light .about-mission__card-desc { color: var(--brand-ink-mute); }
 .about-mission__card--dark  .about-mission__card-desc { color: rgba(255,255,255,0.7); }
 
@@ -247,11 +249,27 @@
 /* ── Leadership ───────────────────────────────────── */
 .about-leadership {
   padding: 96px 64px;
+  background: linear-gradient(180deg, #fff 0%, var(--brand-paper-soft) 100%);
+  position: relative;
+  overflow: hidden;
+}
+
+.about-leadership::before {
+  content: '';
+  position: absolute;
+  top: -160px;
+  right: -160px;
+  width: 520px;
+  height: 520px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(61,108,255,0.06) 0%, transparent 68%);
+  pointer-events: none;
 }
 
 .about-leadership__container {
   max-width: 1240px;
   margin: 0 auto;
+  position: relative;
 }
 
 .about-leadership__header {
@@ -302,32 +320,54 @@
 }
 
 .about-leadership__card {
-  padding: 24px;
+  padding: 26px;
   border-radius: 16px;
   background: #fff;
   border: 1px solid var(--brand-border);
   display: flex;
   flex-direction: column;
-  transition: transform 0.2s, box-shadow 0.2s;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 1px 3px rgba(11,31,58,0.04);
+  transition: transform 0.25s, box-shadow 0.25s, border-color 0.25s;
+}
+
+.about-leadership__card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: var(--brand-grad);
+  border-radius: 16px 16px 0 0;
+  opacity: 0;
+  transition: opacity 0.25s;
 }
 
 .about-leadership__card:hover {
-  transform: translateY(-2px);
-  box-shadow: var(--brand-shadow-lg);
+  transform: translateY(-4px);
+  box-shadow: 0 16px 36px rgba(122,76,255,0.12), 0 4px 10px rgba(11,31,58,0.06);
+  border-color: rgba(122,76,255,0.2);
+}
+
+.about-leadership__card:hover::before {
+  opacity: 1;
 }
 
 .about-leadership__card-top {
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
-  margin-bottom: 14px;
+  margin-bottom: 16px;
 }
 
 .about-leadership__card-icon {
-  width: 42px;
-  height: 42px;
-  border-radius: 11px;
-  background: var(--brand-grad-soft);
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  background: #fff;
+  border: 1px solid rgba(122,76,255,0.2);
   color: var(--brand-purple);
   display: flex;
   align-items: center;
@@ -337,11 +377,11 @@
 
 .about-leadership__card-years {
   font-size: 11px;
-  font-weight: 700;
+  font-weight: 600;
   letter-spacing: 0.01em;
   color: var(--brand-purple);
   background: var(--brand-grad-soft);
-  padding: 3px 8px;
+  padding: 4px 10px;
   border-radius: 999px;
 }
 

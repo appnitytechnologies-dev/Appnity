@@ -21,6 +21,14 @@
   border-bottom: 1px solid var(--brand-border);
 }
 
+.project-card__screenshot {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top;
+  display: block;
+}
+
 .project-card__screen {
   position: absolute;
   inset: 16px;
@@ -149,6 +157,17 @@
   align-items: center;
   justify-content: center;
   color: var(--brand-ink);
+  transition: background 0.15s, border-color 0.15s, color 0.15s;
+}
+
+.project-card__icon-btn--link {
+  cursor: pointer;
+}
+
+.project-card__icon-btn--link:hover {
+  background: var(--brand-ink);
+  border-color: var(--brand-ink);
+  color: #fff;
 }
 
 .project-card__tag {
