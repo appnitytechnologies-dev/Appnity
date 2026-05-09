@@ -11,10 +11,10 @@ const STATS = [
 ];
 
 const VISUAL_CARDS = [
-  { label: 'Mobile Development', color: 'blue',    size: 'tall' },
-  { label: 'Web Platforms',      color: 'purple',  size: 'short' },
-  { label: 'UI/UX Design',       color: 'magenta', size: 'short' },
-  { label: 'Cloud Solutions',    color: 'green',   size: 'tall' },
+  { label: 'Mobile Development', tag: 'iOS & Android', icon: 'Mobile', color: 'blue',    size: 'tall' },
+  { label: 'Web Platforms',      tag: 'React, WordPress & Joomla', icon: 'Web',    color: 'purple',  size: 'short' },
+  { label: 'UI/UX Design',       tag: 'Figma & Prototyping', icon: 'Brush',  color: 'magenta', size: 'short' },
+  { label: 'Cloud Solutions',    tag: 'AWS & Azure', icon: 'Cloud',  color: 'green',   size: 'tall' },
 ];
 
 export default function AboutPreview() {
@@ -53,14 +53,23 @@ export default function AboutPreview() {
 
         {!isMobile && (
           <div className="about-preview__visual">
-            {VISUAL_CARDS.map(item => (
-              <div
-                key={item.label}
-                className={`about-preview__visual-card about-preview__visual-card--${item.size} about-preview__visual-card--${item.color}`}
-              >
-                <span className="about-preview__visual-card-label">{item.label}</span>
-              </div>
-            ))}
+            {VISUAL_CARDS.map(item => {
+              const I = Icons[item.icon];
+              return (
+                <div
+                  key={item.label}
+                  className={`about-preview__visual-card about-preview__visual-card--${item.size} about-preview__visual-card--${item.color}`}
+                >
+                  <div className="about-preview__visual-card-icon">
+                    <I width="28" height="28" />
+                  </div>
+                  <div className="about-preview__visual-card-body">
+                    <span className="about-preview__visual-card-label">{item.label}</span>
+                    <span className="about-preview__visual-card-tag">{item.tag}</span>
+                  </div>
+                </div>
+              );
+            })}
           </div>
         )}
       </div>

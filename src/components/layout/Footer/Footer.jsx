@@ -2,7 +2,10 @@ import { useNavigate } from 'react-router-dom';
 import Logo from '../../ui/Logo/Logo';
 import { Icons } from '../../ui/Icons';
 import { useResponsive } from '../../../hooks/useResponsive';
+import { SERVICES } from '../../../constants/services';
 import './Footer.css';
+
+const SERVICE_MAP = Object.fromEntries(SERVICES.map(s => [s.name, s]));
 
 const COLS = [
   { title: 'Services',  items: ['Mobile App Development', 'Web App Development', 'UI/UX Design', 'Graphic Design', 'Digital Marketing', 'Cloud Computing', 'Project Management', 'Business Solutions'] },
@@ -66,8 +69,11 @@ export default function Footer() {
                 {col.items.map(item => (
                   <li key={item}>
                     <button
-                      onClick={() => ITEM_PATH[item] ? navigate(ITEM_PATH[item]) : undefined}
-                      className={`footer__col-btn${!ITEM_PATH[item] ? ' footer__col-btn--plain' : ''}`}
+                      onClick={() => {
+                        if (ITEM_PATH[item]) navigate(ITEM_PATH[item]);
+                        else if (SERVICE_MAP[item]) navigate('/services/detail', { state: { service: SERVICE_MAP[item] } });
+                      }}
+                      className={`footer__col-btn${!ITEM_PATH[item] && !SERVICE_MAP[item] ? ' footer__col-btn--plain' : ''}`}
                     >
                       {item}
                     </button>
@@ -81,9 +87,8 @@ export default function Footer() {
         <div className="footer__bottom">
           <div>© 2026 Appnity Technologies. All rights reserved.</div>
           <div className="footer__bottom-links">
-            {['Privacy Policy', 'Terms of Service'].map(l => (
-              <a key={l} href="#" onClick={(e) => e.preventDefault()} className="footer__bottom-link">{l}</a>
-            ))}
+            <button className="footer__bottom-link" onClick={() => navigate('/privacy-policy')}>Privacy Policy</button>
+            <button className="footer__bottom-link" onClick={() => navigate('/terms-of-service')}>Terms of Service</button>
           </div>
         </div>
       </div>

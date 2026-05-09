@@ -92,8 +92,13 @@ export default function HeroVisual() {
       </div>
 
       <div className="hero-visual__badge-project">
-        <span className="hero-visual__badge-project-dot" />
-        <span className="hero-visual__badge-project-text">Project in progress</span>
+        <div className="hero-visual__badge-project-icon">
+          <Icons.Star width="13" height="13" />
+        </div>
+        <div>
+          <div className="hero-visual__badge-project-value">98%</div>
+          <div className="hero-visual__badge-project-text">Client Satisfaction</div>
+        </div>
       </div>
     </div>
   );

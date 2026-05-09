@@ -40,6 +40,7 @@
   font-size: 56px;
   font-weight: 700;
   letter-spacing: -0.025em;
+  line-height: 1.1;
   color: var(--brand-ink);
 }
 
@@ -47,78 +48,91 @@
   margin-top: 20px;
   font-size: 17px;
   color: var(--brand-ink-mute);
+  line-height: 1.6;
 }
 
-.process-section__track {
-  position: relative;
-}
-
-.process-section__connector {
-  position: absolute;
-  top: 38px;
-  left: 8%;
-  right: 8%;
-  height: 1px;
-  background: linear-gradient(90deg, transparent, var(--brand-border) 10%, var(--brand-border) 90%, transparent);
-  z-index: 0;
-}
-
+/* Grid */
 .process-section__grid {
   display: grid;
   grid-template-columns: repeat(5, 1fr);
-  gap: 24px;
-  position: relative;
-  z-index: 1;
+  gap: 16px;
 }
 
-.process-section__step {
-  text-align: left;
-}
-
-.process-section__step-icon {
-  width: 76px;
-  height: 76px;
-  border-radius: 18px;
-  background: #fff;
+/* Card */
+.process-section__card {
   border: 1px solid var(--brand-border);
+  border-radius: 20px;
+  padding: 28px 24px 32px;
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.22s ease, box-shadow 0.22s ease;
+}
+
+/* Gradient top bar */
+.process-section__card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 3px;
+  background: var(--brand-grad);
+  border-radius: 20px 20px 0 0;
+}
+
+/* Per-card tints — more visible */
+.process-section__card:nth-child(1) { background: linear-gradient(160deg, rgba(61,108,255,0.09) 0%, #fff 70%); }
+.process-section__card:nth-child(2) { background: linear-gradient(160deg, rgba(93,88,255,0.09)  0%, #fff 70%); }
+.process-section__card:nth-child(3) { background: linear-gradient(160deg, rgba(122,76,255,0.09) 0%, #fff 70%); }
+.process-section__card:nth-child(4) { background: linear-gradient(160deg, rgba(177,76,255,0.09) 0%, #fff 70%); }
+.process-section__card:nth-child(5) { background: linear-gradient(160deg, rgba(11,158,106,0.09) 0%, #fff 70%); }
+
+.process-section__card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 16px 40px rgba(122,76,255,0.14), 0 2px 8px rgba(61,108,255,0.08);
+}
+
+/* Icon box */
+.process-section__card-icon {
+  width: 48px;
+  height: 48px;
+  border-radius: 13px;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 24px;
-  font-weight: 700;
-  color: var(--brand-ink);
-  box-shadow: var(--brand-shadow-sm);
-  position: relative;
+  margin-bottom: 20px;
+  flex-shrink: 0;
 }
 
-.process-section__step-icon--first::before {
-  content: '';
-  position: absolute;
-  inset: -2px;
-  border-radius: 19px;
-  padding: 2px;
+/* Step number */
+.process-section__card-num {
+  font-size: 38px;
+  font-weight: 800;
+  letter-spacing: -0.04em;
+  line-height: 1;
+  margin-bottom: 14px;
   background: var(--brand-grad);
-  -webkit-mask: linear-gradient(#000, #000) content-box, linear-gradient(#000, #000);
-  -webkit-mask-composite: xor;
-  mask-composite: exclude;
-  pointer-events: none;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
 }
 
-.process-section__step-title {
-  font-size: 20px;
+/* Title */
+.process-section__card-title {
+  font-size: 16px;
   font-weight: 700;
-  margin-top: 22px;
-  letter-spacing: -0.02em;
+  letter-spacing: -0.01em;
   color: var(--brand-ink);
+  margin-bottom: 10px;
 }
 
-.process-section__step-desc {
-  margin-top: 10px;
-  font-size: 14px;
+/* Description */
+.process-section__card-desc {
+  font-size: 13.5px;
   color: var(--brand-ink-mute);
-  line-height: 1.55;
+  line-height: 1.65;
+  margin: 0;
 }
 
+/* Responsive */
 @media (max-width: 1023px) {
   .process-section__grid {
     grid-template-columns: repeat(3, 1fr);
@@ -136,13 +150,5 @@
 
   .process-section__grid {
     grid-template-columns: 1fr 1fr;
-  }
-
-  .process-section__connector {
-    display: none;
-  }
-
-  .process-section__step-title {
-    font-size: 17px;
   }
 }

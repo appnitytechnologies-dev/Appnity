@@ -1,4 +1,5 @@
 import { PROCESS_STEPS } from '../../../constants/services';
+import { Icons } from '../../../components/ui/Icons';
 import './ProcessSection.css';
 
 export default function ProcessSection() {
@@ -16,19 +17,23 @@ export default function ProcessSection() {
           </p>
         </div>
 
-        <div className="process-section__track">
-          <div className="process-section__connector" />
-          <div className="process-section__grid">
-            {PROCESS_STEPS.map((s, i) => (
-              <div key={s.n} className="process-section__step">
-                <div className={`process-section__step-icon${i === 0 ? ' process-section__step-icon--first' : ''}`}>
-                  {s.n}
+        <div className="process-section__grid">
+          {PROCESS_STEPS.map((s) => {
+            const I = Icons[s.icon];
+            return (
+              <div key={s.n} className="process-section__card">
+                <div
+                  className="process-section__card-icon"
+                  style={{ background: `${s.accent}18`, color: s.accent }}
+                >
+                  <I width="22" height="22" />
                 </div>
-                <div className="process-section__step-title">{s.t}</div>
-                <p className="process-section__step-desc">{s.d}</p>
+                <div className="process-section__card-num">{s.n}</div>
+                <div className="process-section__card-title">{s.t}</div>
+                <p className="process-section__card-desc">{s.d}</p>
               </div>
-            ))}
-          </div>
+            );
+          })}
         </div>
       </div>
     </section>

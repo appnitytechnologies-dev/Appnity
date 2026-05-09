@@ -42,11 +42,11 @@ export const SERVICE_FEATURES = [
 ];
 
 export const PROCESS_STEPS = [
-  { n: '01', t: 'Discovery',    d: 'Understanding your vision, goals, and business requirements in depth.' },
-  { n: '02', t: 'Planning',     d: 'Strategizing a clear roadmap and architecture tailored to your product.' },
-  { n: '03', t: 'Design',       d: 'Crafting intuitive and beautiful user experiences that resonate with users.' },
-  { n: '04', t: 'Development',  d: 'Building fast, scalable, and secure applications with modern technologies.' },
-  { n: '05', t: 'Launch',       d: 'Deploying your solution with continuous testing, support, and optimisation.' },
+  { n: '01', t: 'Discovery',    d: 'Understanding your vision, goals, and business requirements in depth.',                    icon: 'Search', accent: '#3D6CFF' },
+  { n: '02', t: 'Planning',     d: 'Strategizing a clear roadmap and architecture tailored to your product.',                  icon: 'Layers', accent: '#5D58FF' },
+  { n: '03', t: 'Design',       d: 'Crafting intuitive and beautiful user experiences that resonate with users.',              icon: 'Brush',  accent: '#7A4CFF' },
+  { n: '04', t: 'Development',  d: 'Building fast, scalable, and secure applications with modern technologies.',              icon: 'Cog',    accent: '#B14CFF' },
+  { n: '05', t: 'Launch',       d: 'Deploying your solution with continuous testing, support, and optimisation.',             icon: 'Bolt',   accent: '#0B9E6A' },
 ];
 
 export const WHY_US = [

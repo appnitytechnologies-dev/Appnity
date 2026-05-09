@@ -122,6 +122,16 @@
 
 .footer__bottom-link {
   color: var(--brand-ink-subtle);
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  font-size: inherit;
+  transition: color 0.15s;
+}
+
+.footer__bottom-link:hover {
+  color: var(--brand-ink);
 }
 
 @media (max-width: 1023px) {

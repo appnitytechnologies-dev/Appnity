@@ -1,7 +1,14 @@
 import './LogoStrip.css';
 
-const NAMES = ['Healthcare', 'Fintech', 'E-Commerce', 'Logistics', 'Education', 'Real Estate', 'SaaS'];
-const COLOR_CLASSES = ['ink', 'purple', 'blue'];
+const INDUSTRIES = [
+  { name: 'Healthcare',  color: '#0EA5E9' },
+  { name: 'Fintech',     color: '#7A4CFF' },
+  { name: 'E-Commerce',  color: '#F59E0B' },
+  { name: 'Logistics',   color: '#10B981' },
+  { name: 'Education',   color: '#3D6CFF' },
+  { name: 'Real Estate', color: '#EF4444' },
+  { name: 'SaaS',        color: '#B14CFF' },
+];
 
 export default function LogoStrip() {
   return (
@@ -11,10 +18,21 @@ export default function LogoStrip() {
           Serving clients across industries worldwide
         </div>
         <div className="logo-strip__list">
-          {NAMES.map((n, i) => (
-            <div key={n} className="logo-strip__item">
-              <span className={`logo-strip__icon logo-strip__icon--${COLOR_CLASSES[i % 3]} logo-strip__icon--${i % 2 === 0 ? 'square' : 'round'}`} />
-              {n}
+          {INDUSTRIES.map(ind => (
+            <div
+              key={ind.name}
+              className="logo-strip__pill"
+              style={{
+                background: `${ind.color}12`,
+                border: `1px solid ${ind.color}35`,
+                color: ind.color,
+              }}
+            >
+              <span
+                className="logo-strip__pill-dot"
+                style={{ background: ind.color }}
+              />
+              {ind.name}
             </div>
           ))}
         </div>

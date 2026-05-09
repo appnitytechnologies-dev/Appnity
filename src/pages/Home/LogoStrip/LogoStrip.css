@@ -19,48 +19,44 @@
 .logo-strip__list {
   margin-top: 24px;
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
-  gap: 32px;
+  gap: 12px;
   flex-wrap: wrap;
-  opacity: 0.65;
 }
 
-.logo-strip__item {
-  font-size: 22px;
-  font-weight: 700;
-  letter-spacing: -0.02em;
-  color: var(--brand-ink);
-  display: flex;
+.logo-strip__pill {
+  display: inline-flex;
   align-items: center;
   gap: 8px;
+  padding: 10px 18px;
+  border-radius: 999px;
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  white-space: nowrap;
+  transition: transform 0.15s, box-shadow 0.15s;
 }
 
-.logo-strip__icon {
-  width: 18px;
-  height: 18px;
-  opacity: 0.7;
+.logo-strip__pill:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(0,0,0,0.10);
+}
+
+.logo-strip__pill-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
   flex-shrink: 0;
 }
-
-.logo-strip__icon--ink    { background: var(--brand-ink); }
-.logo-strip__icon--purple { background: var(--brand-purple); }
-.logo-strip__icon--blue   { background: var(--brand-blue); }
-
-.logo-strip__icon--square { border-radius: 4px; }
-.logo-strip__icon--round  { border-radius: 9px; }
 
 @media (max-width: 767px) {
   .logo-strip {
     padding: 8px 20px 48px;
   }
 
-  .logo-strip__list {
-    justify-content: center;
-    gap: 16px;
-  }
-
-  .logo-strip__item {
-    font-size: 16px;
+  .logo-strip__pill {
+    font-size: 13px;
+    padding: 8px 14px;
   }
 }
