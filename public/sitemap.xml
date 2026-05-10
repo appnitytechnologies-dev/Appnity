@@ -100,4 +100,10 @@
     <changefreq>yearly</changefreq>
   </url>
 
+  <url>
+    <loc>https://appnitytechnologies.com/brand-assets</loc>
+    <priority>0.5</priority>
+    <changefreq>monthly</changefreq>
+  </url>
+
 </urlset>

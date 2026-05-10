@@ -1,0 +1,84 @@
+.brand-assets {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 60px 24px 80px;
+}
+
+.brand-assets__header {
+  text-align: center;
+  margin-bottom: 56px;
+}
+
+.brand-assets__title {
+  font-size: 36px;
+  font-weight: 800;
+  color: var(--brand-navy, #0B1F3A);
+  margin-bottom: 16px;
+}
+
+.brand-assets__sub {
+  font-size: 17px;
+  color: #6B7A9B;
+  max-width: 680px;
+  margin: 0 auto;
+  line-height: 1.7;
+}
+
+.brand-assets__grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 32px;
+  margin-bottom: 64px;
+}
+
+.brand-assets__figure {
+  margin: 0;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 2px 16px rgba(0, 0, 0, 0.08);
+}
+
+.brand-assets__img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.brand-assets__caption {
+  font-size: 13px;
+  color: #6B7A9B;
+  padding: 12px 16px;
+  background: #F8F9FF;
+  border-top: 1px solid #EEEEF5;
+}
+
+.brand-assets__about {
+  border-top: 1px solid #EEEEF5;
+  padding-top: 40px;
+  max-width: 720px;
+}
+
+.brand-assets__about h2 {
+  font-size: 22px;
+  font-weight: 700;
+  color: #0B1F3A;
+  margin-bottom: 16px;
+}
+
+.brand-assets__about p {
+  font-size: 16px;
+  color: #6B7A9B;
+  line-height: 1.75;
+  margin-bottom: 12px;
+}
+
+.brand-assets__about a {
+  color: #7A4CFF;
+  text-decoration: none;
+}
+
+@media (max-width: 700px) {
+  .brand-assets__grid {
+    grid-template-columns: 1fr;
+  }
+}
