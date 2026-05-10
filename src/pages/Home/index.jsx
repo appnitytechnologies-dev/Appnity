@@ -14,7 +14,7 @@ export default function HomePage() {
   return (
     <>
       <SEO
-        title="Mobile Apps, Web & Cloud Solutions"
+        title="Empowering Innovation Through Digital Solutions"
         description="Appnity Technologies is a global digital solutions company building intuitive mobile apps, robust web platforms, and scalable cloud solutions that accelerate business growth."
         path="/"
       />

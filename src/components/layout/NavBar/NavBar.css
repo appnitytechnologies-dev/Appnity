@@ -35,6 +35,7 @@
   padding: 0;
   cursor: pointer;
   display: flex;
+  text-decoration: none;
 }
 
 .nav-bar__desktop-nav {
@@ -53,6 +54,7 @@
   color: var(--brand-ink-mute);
   background: transparent;
   transition: color 0.15s, background 0.15s;
+  text-decoration: none;
 }
 
 .nav-bar__nav-item--active {
@@ -87,6 +89,7 @@
   background: var(--brand-ink);
   box-shadow: 0 1px 0 rgba(255,255,255,0.12) inset, 0 6px 20px rgba(11,31,58,0.18);
   transition: transform 0.15s, box-shadow 0.2s;
+  text-decoration: none;
 }
 
 .nav-bar__cta-btn:hover {
@@ -182,6 +185,7 @@
   font-weight: 500;
   color: var(--brand-ink-mute);
   background: transparent;
+  text-decoration: none;
 }
 
 .nav-bar__drawer-item--active {
@@ -210,4 +214,5 @@
   color: #fff;
   background: var(--brand-ink);
   box-shadow: 0 6px 20px rgba(11,31,58,0.18);
+  text-decoration: none;
 }

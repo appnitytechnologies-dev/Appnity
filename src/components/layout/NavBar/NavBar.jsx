@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { useNavigate, useLocation } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import Logo from '../../ui/Logo/Logo';
 import { Icons } from '../../ui/Icons';
 import './NavBar.css';
@@ -18,7 +18,6 @@ const PATH_PAGE = {
 };
 
 export default function NavBar() {
-  const navigate = useNavigate();
   const location = useLocation();
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
@@ -53,38 +52,33 @@ export default function NavBar() {
 
   useEffect(() => { setOpen(false); }, [location.pathname]);
 
-  const goTo = (page) => {
-    navigate(PAGE_PATH[page] || '/');
-    setOpen(false);
-  };
-
   return (
     <>
       <header className={`nav-bar__header${scrolled ? ' nav-bar__header--scrolled' : ''}`}>
         <div className="nav-bar__inner">
-          <button className="nav-bar__logo-btn" onClick={() => goTo('Home')}>
+          <Link className="nav-bar__logo-btn" to="/">
             <Logo size={scrolled ? 28 : 42} />
-          </button>
+          </Link>
 
           {!isMobile && (
             <nav className="nav-bar__desktop-nav">
               {NAV_ITEMS.map(item => (
-                <button
+                <Link
                   key={item}
-                  onClick={() => goTo(item)}
+                  to={PAGE_PATH[item]}
                   className={`nav-bar__nav-item${active === item ? ' nav-bar__nav-item--active' : ''}`}
                 >
                   {item}
-                </button>
+                </Link>
               ))}
             </nav>
           )}
 
           <div className="nav-bar__actions">
             {!isMobile && (
-              <button className="nav-bar__cta-btn" onClick={() => goTo('Contact')}>
+              <Link className="nav-bar__cta-btn" to="/contact">
                 Get In Touch <Icons.Arrow width="14" height="14" />
-              </button>
+              </Link>
             )}
             {isMobile && (
               <button className="nav-bar__burger" onClick={() => setOpen(o => !o)}>
@@ -113,20 +107,25 @@ export default function NavBar() {
 
           <div className="nav-bar__drawer-nav">
             {NAV_ITEMS.map(item => (
-              <button
+              <Link
                 key={item}
-                onClick={() => goTo(item)}
+                to={PAGE_PATH[item]}
+                onClick={() => setOpen(false)}
                 className={`nav-bar__drawer-item${active === item ? ' nav-bar__drawer-item--active' : ''}`}
               >
                 {item}
-              </button>
+              </Link>
             ))}
           </div>
 
           <div className="nav-bar__drawer-footer">
-            <button className="nav-bar__drawer-cta" onClick={() => goTo('Contact')}>
+            <Link
+              className="nav-bar__drawer-cta"
+              to="/contact"
+              onClick={() => setOpen(false)}
+            >
               Get In Touch <Icons.Arrow width="14" height="14" />
-            </button>
+            </Link>
           </div>
         </div>
       )}

@@ -1,0 +1,23 @@
+<svg width="400" height="400" viewBox="0 0 400 400" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bgGrad" x1="0" y1="0" x2="400" y2="400" gradientUnits="userSpaceOnUse">
+      <stop offset="0%"   stop-color="#3D6CFF"/>
+      <stop offset="55%"  stop-color="#7A4CFF"/>
+      <stop offset="100%" stop-color="#B14CFF"/>
+    </linearGradient>
+    <radialGradient id="sheen" cx="30%" cy="25%" r="65%">
+      <stop offset="0%" stop-color="rgba(255,255,255,0.14)"/>
+      <stop offset="100%" stop-color="rgba(255,255,255,0)"/>
+    </radialGradient>
+  </defs>
+
+  <!-- Full gradient background (LinkedIn crops to circle) -->
+  <rect width="400" height="400" fill="url(#bgGrad)"/>
+  <rect width="400" height="400" fill="url(#sheen)"/>
+
+  <!-- White A icon: favicon paths (99x99) scaled to fill 400x400 → scale = 4.0404 -->
+  <g transform="scale(4.0404)">
+    <path d="M29.4557 78.9681C28.9593 80.1961 27.7672 81 26.4426 81H21.2534C18.9285 81 17.3556 78.6299 18.2586 76.4876L42.918 17.9876C43.4257 16.7831 44.6057 16 45.9128 16H54.4813C55.7794 16 56.953 16.7725 57.4664 17.9648L82.6539 76.4648C83.5775 78.6099 82.0044 81 79.6688 81H73.9119C72.5982 81 71.4137 80.2092 70.9101 78.9958L65.2161 65.2769C64.7125 64.0636 63.5281 63.2727 62.2144 63.2727H47.7121C45.4214 63.2727 43.8495 60.9663 44.6872 58.8342L46.241 54.8797C46.7296 53.636 47.9297 52.8182 49.2659 52.8182H55.1786C57.497 52.8182 59.0699 50.4602 58.1792 48.3197L52.9387 35.7248C51.8222 33.0415 48.0142 33.0608 46.925 35.7552L29.4557 78.9681Z" fill="white"/>
+    <path d="M57.7487 79.0699L54.1376 70.945C53.1824 68.7958 54.7556 66.375 57.1075 66.375H58.9319C60.2163 66.375 61.3802 67.1314 61.9018 68.3051L65.5129 76.43C66.4681 78.5792 64.8949 81 62.543 81H60.7186C59.4342 81 58.2704 80.2436 57.7487 79.0699Z" fill="white"/>
+  </g>
+</svg>

@@ -1,5 +1,7 @@
 import { useEffect } from 'react';
 import { Routes, Route, Navigate, useLocation } from 'react-router-dom';
+import { initGA } from './analytics/analytics';
+import RouteTracker from './analytics/RouteTracker';
 import HomePage from './pages/Home';
 import AboutPage from './pages/About';
 import ServicesPage from './pages/Services';
@@ -21,9 +23,19 @@ function ScrollToTop() {
 }
 
 export default function App() {
+  // Initialize GA4 once when the app first mounts.
+  // The gtag.js library is already loaded by index.html; this call
+  // applies runtime options (e.g. send_page_view: false) to prevent
+  // the automatic hit that would duplicate our RouteTracker events.
+  useEffect(() => {
+    initGA();
+  }, []);
+
   return (
     <div className="ap-page">
       <ScrollToTop />
+      {/* Fires a page_view event on every route change, including initial load */}
+      <RouteTracker />
       <Routes>
         <Route path="/"                element={<HomePage />} />
         <Route path="/about"           element={<AboutPage />} />
