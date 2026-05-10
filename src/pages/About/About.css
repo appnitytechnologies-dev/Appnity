@@ -491,8 +491,11 @@
   .about-mission__grid     { grid-template-columns: 1fr; }
   .about-mission__card     { padding: 28px; }
   .about-mission__card-title { font-size: 28px; }
+  .about-values__grid      { grid-template-columns: 1fr 1fr; }
   .about-values__title     { font-size: 34px; }
   .about-leadership__title { font-size: 34px; }
+  .about-leadership__grid  { grid-template-columns: 1fr; }
+  .about-leadership__card  { padding: 20px; }
   .about-faq__container    { grid-template-columns: 1fr; gap: 32px; }
   .about-faq__sidebar      { position: static; }
   .about-faq__title        { font-size: 32px; }
