@@ -4,7 +4,7 @@ const SITE_NAME = 'Appnity Technologies';
 const SITE_URL  = 'https://appnitytechnologies.com';
 const DEFAULT_IMAGE = `${SITE_URL}/og-image.png`;
 
-export default function SEO({ title, description, path = '', image }) {
+export default function SEO({ title, description, path = '', image, type = 'website' }) {
   const fullTitle = title ? `${title} | ${SITE_NAME}` : SITE_NAME;
   const url       = `${SITE_URL}${path}`;
   const ogImage   = image || DEFAULT_IMAGE;
@@ -16,7 +16,7 @@ export default function SEO({ title, description, path = '', image }) {
       <link rel="canonical" href={url} />
 
       {/* Open Graph */}
-      <meta property="og:type"        content="website" />
+      <meta property="og:type"        content={type} />
       <meta property="og:site_name"   content={SITE_NAME} />
       <meta property="og:title"       content={fullTitle} />
       <meta property="og:description" content={description} />

@@ -3,6 +3,7 @@ import NavBar from '../../../components/layout/NavBar/NavBar';
 import CtaBanner from '../../../components/layout/CtaBanner/CtaBanner';
 import Footer from '../../../components/layout/Footer/Footer';
 import { Icons } from '../../../components/ui/Icons';
+import SEO from '../../../components/ui/SEO/SEO';
 import { POSTS } from '../../../constants/blog';
 import BodyBlock from './BodyBlock/BodyBlock';
 import './PostDetail.css';
@@ -29,8 +30,16 @@ export default function PostDetail() {
 
   const related = POSTS.filter(p => p.cat === post.cat && p.id !== post.id).slice(0, 2);
 
+  const desc = post.excerpt.length > 155 ? post.excerpt.slice(0, 152) + '…' : post.excerpt;
+
   return (
     <>
+      <SEO
+        title={post.title}
+        description={desc}
+        path={`/blog/${post.id}`}
+        type="article"
+      />
       <NavBar />
 
       {/* Hero */}

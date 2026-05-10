@@ -1,0 +1,72 @@
+<svg width="1200" height="630" viewBox="0 0 1200 630" xmlns="http://www.w3.org/2000/svg"
+     font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif">
+  <defs>
+    <linearGradient id="hGrad" x1="0" y1="0" x2="1200" y2="0" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#3D6CFF"/>
+      <stop offset="50%" stop-color="#7A4CFF"/>
+      <stop offset="100%" stop-color="#B14CFF"/>
+    </linearGradient>
+    <linearGradient id="lGrad" x1="0" y1="0" x2="77" y2="77" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#3D6CFF"/>
+      <stop offset="55%" stop-color="#7A4CFF"/>
+      <stop offset="100%" stop-color="#B14CFF"/>
+    </linearGradient>
+    <linearGradient id="iconBg" x1="90" y1="95" x2="350" y2="375" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#3D6CFF"/>
+      <stop offset="100%" stop-color="#B14CFF"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="1200" height="630" fill="#FFFFFF"/>
+  <rect x="0" y="0" width="1200" height="8" fill="url(#hGrad)"/>
+
+  <!-- Header logo -->
+  <g transform="translate(40, 20) scale(0.753)">
+    <rect width="77" height="77" rx="25" fill="url(#lGrad)"/>
+    <path d="M18.4557 73.9681C17.9593 75.1961 16.7672 76 15.4426 76H10.2534C7.92853 76 6.35557 73.6299 7.25862 71.4876L31.918 12.9876C32.4257 11.7831 33.6057 11 34.9128 11H43.4813C44.7794 11 45.953 11.7725 46.4664 12.9648L71.6539 71.4648C72.5775 73.6099 71.0044 76 68.6688 76H62.9119C61.5982 76 60.4137 75.2092 59.9101 73.9958L54.2161 60.2769C53.7125 59.0636 52.5281 58.2727 51.2144 58.2727H36.7121C34.4214 58.2727 32.8495 55.9663 33.6872 53.8342L35.241 49.8797C35.7296 48.636 36.9297 47.8182 38.2659 47.8182H44.1786C46.497 47.8182 48.0699 45.4602 47.1792 43.3197L41.9387 30.7248C40.8222 28.0415 37.0142 28.0608 35.925 30.7552L18.4557 73.9681Z" fill="white"/>
+    <path d="M46.7487 74.0699L43.1376 65.945C42.1824 63.7958 43.7556 61.375 46.1075 61.375H47.9319C49.2163 61.375 50.3802 62.1314 50.9018 63.3051L54.5129 71.43C55.4681 73.5792 53.8949 76 51.543 76H49.7186C48.4342 76 47.2704 75.2436 46.7487 74.0699Z" fill="white"/>
+  </g>
+  <text x="108" y="56" font-size="18" font-weight="600" fill="#0B1F3A">Appnity Technologies</text>
+
+  <!-- Service icon box -->
+  <rect x="90" y="95" width="260" height="280" rx="32" fill="url(#iconBg)"/>
+
+  <!-- Wireframe / layout icon, centered at (220, 235) -->
+  <g transform="translate(220, 235)">
+    <!-- Outer frame -->
+    <rect x="-52" y="-56" width="104" height="112" rx="10" fill="none" stroke="white" stroke-width="8"/>
+    <!-- Header bar -->
+    <rect x="-40" y="-44" width="80" height="18" rx="4" fill="white" opacity="0.35"/>
+    <!-- Left sidebar -->
+    <rect x="-40" y="-18" width="26" height="62" rx="4" fill="white" opacity="0.25"/>
+    <!-- Content blocks (right) -->
+    <rect x="-6" y="-18" width="50" height="12" rx="3" fill="white" opacity="0.55"/>
+    <rect x="-6" y="2" width="46" height="10" rx="3" fill="white" opacity="0.35"/>
+    <rect x="-6" y="18" width="42" height="10" rx="3" fill="white" opacity="0.35"/>
+    <rect x="-6" y="34" width="50" height="14" rx="3" fill="white" opacity="0.45"/>
+  </g>
+
+  <!-- Right content -->
+  <text x="420" y="130" font-size="13" font-weight="600" fill="#7A4CFF" letter-spacing="2">UI/UX DESIGN</text>
+  <text x="420" y="180" font-size="48" font-weight="800" fill="#0B1F3A">UI/UX</text>
+  <text x="420" y="238" font-size="48" font-weight="800" fill="#7A4CFF">Design</text>
+  <text x="420" y="282" font-size="17" fill="#6B7A9B">Intuitive interfaces that convert visitors to customers.</text>
+
+  <rect x="420" y="302" width="120" height="3" rx="1.5" fill="url(#hGrad)"/>
+
+  <circle cx="432" cy="342" r="5" fill="#7A4CFF"/>
+  <text x="450" y="348" font-size="17" fill="#0B1F3A">User Research &amp; Wireframing</text>
+
+  <circle cx="432" cy="394" r="5" fill="#7A4CFF"/>
+  <text x="450" y="400" font-size="17" fill="#0B1F3A">Interactive Prototyping &amp; Testing</text>
+
+  <circle cx="432" cy="446" r="5" fill="#7A4CFF"/>
+  <text x="450" y="452" font-size="17" fill="#0B1F3A">Brand Identity &amp; Design Systems</text>
+
+  <circle cx="432" cy="498" r="5" fill="#7A4CFF"/>
+  <text x="450" y="504" font-size="17" fill="#0B1F3A">Figma Designs — Ready to Develop</text>
+
+  <!-- Footer -->
+  <rect x="0" y="568" width="1200" height="62" fill="#F6F7FF"/>
+  <text x="600" y="607" font-size="18" font-weight="500" fill="#7A4CFF" text-anchor="middle">appnitytechnologies.com</text>
+</svg>
