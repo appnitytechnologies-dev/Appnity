@@ -1,4 +1,5 @@
 import SEO from '../../components/ui/SEO/SEO';
+import { Helmet } from 'react-helmet-async';
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import NavBar from '../../components/layout/NavBar/NavBar';
@@ -8,6 +9,19 @@ import FAQItem from './FAQItem/FAQItem';
 import { Icons } from '../../components/ui/Icons';
 import { LEADERSHIP_DOMAINS, VALUES, FAQ } from '../../constants/team';
 import './About.css';
+
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: FAQ.map(f => ({
+    '@type': 'Question',
+    name: f.q,
+    acceptedAnswer: {
+      '@type': 'Answer',
+      text: f.a,
+    },
+  })),
+};
 
 const MISSION_CARDS = [
   {
@@ -35,6 +49,9 @@ export default function AboutPage() {
         description="Learn about Appnity Technologies — 8+ years of experience, 100+ projects delivered, and a global team of specialists across mobile, web, cloud, and design."
         path="/about"
       />
+      <Helmet>
+        <script type="application/ld+json">{JSON.stringify(faqSchema)}</script>
+      </Helmet>
       <NavBar />
 
       {/* Hero */}

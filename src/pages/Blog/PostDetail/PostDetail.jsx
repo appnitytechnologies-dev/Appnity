@@ -35,9 +35,15 @@ export default function PostDetail() {
 
   const articleSchema = {
     '@context': 'https://schema.org',
-    '@type': 'Article',
+    '@type': 'BlogPosting',
     headline: post.title,
     description: desc,
+    image: {
+      '@type': 'ImageObject',
+      url: 'https://appnitytechnologies.com/og-image.png',
+      width: 1200,
+      height: 630,
+    },
     author: {
       '@type': 'Person',
       name: post.author,
@@ -49,11 +55,17 @@ export default function PostDetail() {
       logo: {
         '@type': 'ImageObject',
         url: 'https://appnitytechnologies.com/Logo%20SVG%20New.svg',
+        width: 200,
+        height: 60,
       },
     },
     datePublished: new Date(post.date).toISOString().split('T')[0],
+    dateModified: new Date(post.date).toISOString().split('T')[0],
     url: `https://appnitytechnologies.com/blog/${post.id}`,
-    mainEntityOfPage: `https://appnitytechnologies.com/blog/${post.id}`,
+    mainEntityOfPage: {
+      '@type': 'WebPage',
+      '@id': `https://appnitytechnologies.com/blog/${post.id}`,
+    },
   };
 
   return (
