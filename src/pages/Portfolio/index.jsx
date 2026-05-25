@@ -12,6 +12,10 @@ export default function PortfolioPage() {
   const dispatch = useDispatch();
   const activeFilter = useSelector(s => s.portfolio.activeFilter);
   const filtered = PROJECTS.filter(p => activeFilter === 'All' || p.c === activeFilter);
+  // Only show filter tabs that have at least one project (plus All)
+  const activeFilters = PORTFOLIO_FILTERS.filter(
+    f => f === 'All' || PROJECTS.some(p => p.c === f)
+  );
 
   return (
     <>
@@ -44,7 +48,7 @@ export default function PortfolioPage() {
       <section className="portfolio-filters">
         <div className="portfolio-filters__container">
           <div className="portfolio-filters__list">
-            {PORTFOLIO_FILTERS.map(f => (
+            {activeFilters.map(f => (
               <button
                 key={f}
                 onClick={() => dispatch(setFilter(f))}

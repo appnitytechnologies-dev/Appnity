@@ -1,5 +1,5 @@
 export const PROJECTS = [
-  { t: 'P&A Global',           c: 'Web',    d: 'Pharmaceutical regulatory consulting platform for life sciences & healthcare',  tag: 'Regulatory Affairs · QMS · FDA Compliance',  accent: '#0A7B7B', img: '/portfolio/paglobal.png', url: 'https://paglobal.us/' },
+  { t: 'P&A Global',           c: 'Web',    d: 'Pharmaceutical regulatory consulting platform for life sciences & healthcare',  tag: 'Regulatory Affairs · QMS · FDA Compliance',  accent: '#0A7B7B', url: 'https://paglobal.us/' },
   { t: 'Stratecs',             c: 'Web',    d: 'AI-powered chromatography analytics platform for pharmaceutical labs',  tag: 'AI · ML · Pharma Analytics · Regulatory Compliance',  accent: '#1A6FBF', url: 'https://stratecs.com/' },
   { t: 'Padgett Group',        c: 'Web',    d: 'Life sciences & pharma consulting firm specialising in QMS and regulatory compliance', tag: 'QMS · Regulatory Affairs · Inspection Readiness', accent: '#2C4A8C', url: 'https://padgettgroup.co.uk/' },
   { t: 'Greenwood Direct',     c: 'Web',    d: 'E-commerce platform for a UK garden and outdoor products retailer', tag: 'E-commerce · Retail · UK', accent: '#3A7D44', url: 'https://www.greenwood-direct.co.uk/' },

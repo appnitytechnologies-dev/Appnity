@@ -1,5 +1,6 @@
 import NavBar from '../../components/layout/NavBar/NavBar';
 import Footer from '../../components/layout/Footer/Footer';
+import SEO from '../../components/ui/SEO/SEO';
 import './PrivacyPolicy.css';
 
 const scrollTo = (id) => {
@@ -265,6 +266,11 @@ const SECTIONS = [
 export default function PrivacyPolicyPage() {
   return (
     <>
+      <SEO
+        title="Privacy Policy"
+        description="Read Appnity Technologies' Privacy Policy to understand how we collect, use, and protect your personal data in compliance with applicable privacy laws."
+        path="/privacy-policy"
+      />
       <NavBar />
 
       <section className="legal-hero">

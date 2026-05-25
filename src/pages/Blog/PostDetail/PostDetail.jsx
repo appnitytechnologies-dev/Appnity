@@ -1,4 +1,5 @@
-import { useParams, useNavigate } from 'react-router-dom';
+import { useParams, useNavigate, Link } from 'react-router-dom';
+import { Helmet } from 'react-helmet-async';
 import NavBar from '../../../components/layout/NavBar/NavBar';
 import CtaBanner from '../../../components/layout/CtaBanner/CtaBanner';
 import Footer from '../../../components/layout/Footer/Footer';
@@ -32,6 +33,29 @@ export default function PostDetail() {
 
   const desc = post.excerpt.length > 155 ? post.excerpt.slice(0, 152) + '…' : post.excerpt;
 
+  const articleSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'Article',
+    headline: post.title,
+    description: desc,
+    author: {
+      '@type': 'Person',
+      name: post.author,
+      jobTitle: post.role,
+    },
+    publisher: {
+      '@type': 'Organization',
+      name: 'Appnity Technologies',
+      logo: {
+        '@type': 'ImageObject',
+        url: 'https://appnitytechnologies.com/Logo%20SVG%20New.svg',
+      },
+    },
+    datePublished: new Date(post.date).toISOString().split('T')[0],
+    url: `https://appnitytechnologies.com/blog/${post.id}`,
+    mainEntityOfPage: `https://appnitytechnologies.com/blog/${post.id}`,
+  };
+
   return (
     <>
       <SEO
@@ -40,6 +64,9 @@ export default function PostDetail() {
         path={`/blog/${post.id}`}
         type="article"
       />
+      <Helmet>
+        <script type="application/ld+json">{JSON.stringify(articleSchema)}</script>
+      </Helmet>
       <NavBar />
 
       {/* Hero */}
@@ -110,10 +137,10 @@ export default function PostDetail() {
               style={{ gridTemplateColumns: `repeat(${related.length}, 1fr)` }}
             >
               {related.map(r => (
-                <div
+                <Link
                   key={r.id}
+                  to={`/blog/${r.id}`}
                   className="post-detail-related__card"
-                  onClick={() => navigate(`/blog/${r.id}`)}
                 >
                   <span
                     className="post-detail-related__card-cat"
@@ -125,7 +152,7 @@ export default function PostDetail() {
                   <div className="post-detail-related__card-link" style={{ color: r.accent }}>
                     Read article <Icons.Arrow width="13" height="13" />
                   </div>
-                </div>
+                </Link>
               ))}
             </div>
           </div>

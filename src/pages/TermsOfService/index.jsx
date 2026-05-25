@@ -1,5 +1,6 @@
 import NavBar from '../../components/layout/NavBar/NavBar';
 import Footer from '../../components/layout/Footer/Footer';
+import SEO from '../../components/ui/SEO/SEO';
 import './TermsOfService.css';
 
 const scrollTo = (id) => {
@@ -259,6 +260,11 @@ const SECTIONS = [
 export default function TermsOfServicePage() {
   return (
     <>
+      <SEO
+        title="Terms of Service"
+        description="Read Appnity Technologies' Terms of Service to understand the conditions governing your use of our website and digital services."
+        path="/terms-of-service"
+      />
       <NavBar />
 
       <section className="legal-hero">

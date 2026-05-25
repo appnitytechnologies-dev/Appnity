@@ -10,12 +10,20 @@ const SERVICE_MAP = Object.fromEntries(SERVICES.map(s => [s.name, s]));
 const COLS = [
   { title: 'Services',  items: ['Mobile App Development', 'Web App Development', 'UI/UX Design', 'Graphic Design', 'Digital Marketing', 'Cloud Computing', 'Project Management', 'Business Solutions'] },
   { title: 'Company',   items: ['About', 'Services', 'Portfolio', 'Blog', 'Contact'] },
-  { title: 'Connect',   items: ['info@appnitytechnologies.com', 'LinkedIn', 'Instagram', 'Twitter', 'Facebook'] },
+  { title: 'Connect',   items: ['Email Us', 'LinkedIn', 'Instagram', 'Twitter', 'Facebook'] },
 ];
 
 const ITEM_PATH = {
   About: '/about', Services: '/services', Portfolio: '/portfolio',
   Blog: '/blog', Contact: '/contact',
+};
+
+const ITEM_HREF = {
+  'Email Us': 'mailto:info@appnitytechnologies.com',
+  'LinkedIn':  'https://linkedin.com/company/appnity-technologies',
+  'Instagram': 'https://instagram.com/appnitytechnologies',
+  'Twitter':   'https://twitter.com/appnitytech',
+  'Facebook':  'https://facebook.com/appnitytechnologies',
 };
 
 const SOCIAL_ICONS = [Icons.Twitter, Icons.Linkedin, Icons.Github];
@@ -68,15 +76,26 @@ export default function Footer() {
               <ul className="footer__col-list">
                 {col.items.map(item => (
                   <li key={item}>
-                    <button
-                      onClick={() => {
-                        if (ITEM_PATH[item]) navigate(ITEM_PATH[item]);
-                        else if (SERVICE_MAP[item]) navigate('/services/detail', { state: { service: SERVICE_MAP[item] } });
-                      }}
-                      className={`footer__col-btn${!ITEM_PATH[item] && !SERVICE_MAP[item] ? ' footer__col-btn--plain' : ''}`}
-                    >
-                      {item}
-                    </button>
+                    {ITEM_HREF[item] ? (
+                      <a
+                        href={ITEM_HREF[item]}
+                        target={item === 'Email Us' ? undefined : '_blank'}
+                        rel={item === 'Email Us' ? undefined : 'noopener noreferrer'}
+                        className="footer__col-btn"
+                      >
+                        {item}
+                      </a>
+                    ) : (
+                      <button
+                        onClick={() => {
+                          if (ITEM_PATH[item]) navigate(ITEM_PATH[item]);
+                          else if (SERVICE_MAP[item]) navigate('/services/detail', { state: { service: SERVICE_MAP[item] } });
+                        }}
+                        className={`footer__col-btn${!ITEM_PATH[item] && !SERVICE_MAP[item] ? ' footer__col-btn--plain' : ''}`}
+                      >
+                        {item}
+                      </button>
+                    )}
                   </li>
                 ))}
               </ul>

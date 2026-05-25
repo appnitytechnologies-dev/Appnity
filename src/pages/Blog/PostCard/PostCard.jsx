@@ -15,7 +15,7 @@ export default function PostCard({ post, onRead }) {
           <span className="post-card__read">{post.read}</span>
         </div>
         <h3 className="post-card__title">{post.title}</h3>
-        <p className="post-card__excerpt">{post.excerpt.substring(0, 120)}…</p>
+        <p className="post-card__excerpt">{post.excerpt.length > 120 ? post.excerpt.substring(0, 120) + '…' : post.excerpt}</p>
         <div className="post-card__footer">
           <AuthorChip post={post} />
           <span className="post-card__date">{post.date}</span>

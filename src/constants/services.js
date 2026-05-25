@@ -52,7 +52,7 @@ export const PROCESS_STEPS = [
 export const WHY_US = [
   { icon: 'Cog',    t: 'Tailored Solutions',      d: "We don't do one-size-fits-all. Every solution is custom-built for your unique business needs." },
   { icon: 'Bolt',   t: 'Tech Expertise',           d: 'Our team brings in-depth technical knowledge across mobile, web, cloud, and design.' },
-  { icon: 'Users',  t: 'Global Experience',        d: 'Over 1,000 successful projects delivered across the world for diverse industries.' },
+  { icon: 'Users',  t: 'Global Experience',        d: 'Over 100 successful projects delivered across the world for diverse industries.' },
   { icon: 'Shield', t: 'Client-Centric Approach',  d: 'Your vision is our priority. We stay aligned with your goals at every stage.' },
   { icon: 'Layers', t: 'End-to-End Services',      d: 'From idea to launch and beyond — we are with you at every step of the journey.' },
   { icon: 'Chart',  t: 'Results-Driven',           d: 'Every project is measured by business impact, not just delivery milestones.' },

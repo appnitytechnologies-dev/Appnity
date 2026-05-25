@@ -1,6 +1,7 @@
 import { useNavigate, useLocation } from 'react-router-dom';
 import NavBar from '../../components/layout/NavBar/NavBar';
 import Footer from '../../components/layout/Footer/Footer';
+import SEO from '../../components/ui/SEO/SEO';
 import { Icons } from '../../components/ui/Icons';
 import { SERVICES, SERVICE_TAGS, TECH_STACK, SERVICE_FEATURES } from '../../constants/services';
 import './ServiceDetail.css';
@@ -11,8 +12,16 @@ export default function ServiceDetailPage() {
   const s = location.state?.service || SERVICES[0];
   const I = Icons[s.icon];
 
+  const seoDesc = `${s.desc} Appnity Technologies delivers end-to-end ${s.name.toLowerCase()} solutions with transparent communication and milestone-based execution.`;
+  const desc = seoDesc.length > 155 ? seoDesc.slice(0, 152) + '…' : seoDesc;
+
   return (
     <>
+      <SEO
+        title={s.name}
+        description={desc}
+        path="/services/detail"
+      />
       <NavBar />
 
       {/* Hero */}

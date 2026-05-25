@@ -1,4 +1,9 @@
 User-agent: *
 Allow: /
 
+# Block asset folders — SVG files are not web pages
+Disallow: /gmb/
+Disallow: /linkedin/
+Disallow: /Logo%20SVG%20New.svg
+
 Sitemap: https://appnitytechnologies.com/sitemap.xml

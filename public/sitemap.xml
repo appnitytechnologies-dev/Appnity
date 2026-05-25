@@ -32,6 +32,13 @@
   </url>
 
   <url>
+    <loc>https://appnitytechnologies.com/blog/10</loc>
+    <priority>0.7</priority>
+    <changefreq>monthly</changefreq>
+    <lastmod>2026-05-25</lastmod>
+  </url>
+
+  <url>
     <loc>https://appnitytechnologies.com/blog/1</loc>
     <priority>0.7</priority>
     <changefreq>monthly</changefreq>
@@ -104,6 +111,18 @@
     <loc>https://appnitytechnologies.com/brand-assets</loc>
     <priority>0.5</priority>
     <changefreq>monthly</changefreq>
+  </url>
+
+  <url>
+    <loc>https://appnitytechnologies.com/privacy-policy</loc>
+    <priority>0.3</priority>
+    <changefreq>yearly</changefreq>
+  </url>
+
+  <url>
+    <loc>https://appnitytechnologies.com/terms-of-service</loc>
+    <priority>0.3</priority>
+    <changefreq>yearly</changefreq>
   </url>
 
 </urlset>
