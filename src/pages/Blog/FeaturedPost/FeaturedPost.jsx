@@ -49,7 +49,7 @@ export default function FeaturedPost({ post }) {
           <button
             className="featured-post__btn"
             style={{ background: post.accent, boxShadow: `0 4px 14px ${post.accent}40` }}
-            onClick={() => navigate(`/blog/${post.id}`)}
+            onClick={() => navigate(`/blog/${post.slug}`)}
           >
             Read article <Icons.Arrow width="13" height="13" />
           </button>

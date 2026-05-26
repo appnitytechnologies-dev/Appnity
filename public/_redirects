@@ -1,5 +1,17 @@
 # Block dead PHP endpoint — was causing 5xx errors on Google crawl
 /api/*  /index.html  404
 
+# 301 redirects: old number-based blog URLs → new slug-based URLs
+/blog/1   /blog/why-your-business-needs-a-mobile-app-in-2025      301
+/blog/2   /blog/flutter-vs-react-native-which-should-you-choose    301
+/blog/3   /blog/10-ui-ux-principles-that-drive-user-engagement     301
+/blog/4   /blog/how-to-build-scalable-web-app-react-nodejs         301
+/blog/5   /blog/digital-marketing-strategies-that-work-in-2026     301
+/blog/6   /blog/why-smes-are-moving-to-cloud-practical-guide       301
+/blog/7   /blog/progressive-web-apps-for-your-business             301
+/blog/8   /blog/building-a-brand-identity-that-stands-out          301
+/blog/9   /blog/aws-vs-google-cloud-vs-azure-choosing-right-platform 301
+/blog/10  /blog/why-small-businesses-need-a-website-in-2026        301
+
 # React SPA — all valid routes serve index.html
 /*  /index.html  200

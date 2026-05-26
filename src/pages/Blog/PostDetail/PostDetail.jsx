@@ -10,9 +10,9 @@ import BodyBlock from './BodyBlock/BodyBlock';
 import './PostDetail.css';
 
 export default function PostDetail() {
-  const { id } = useParams();
+  const { slug } = useParams();
   const navigate = useNavigate();
-  const post = POSTS.find(p => p.id === Number(id));
+  const post = POSTS.find(p => p.slug === slug);
 
   if (!post) {
     return (
@@ -61,10 +61,10 @@ export default function PostDetail() {
     },
     datePublished: new Date(post.date).toISOString().split('T')[0],
     dateModified: new Date(post.date).toISOString().split('T')[0],
-    url: `https://appnitytechnologies.com/blog/${post.id}`,
+    url: `https://appnitytechnologies.com/blog/${post.slug}`,
     mainEntityOfPage: {
       '@type': 'WebPage',
-      '@id': `https://appnitytechnologies.com/blog/${post.id}`,
+      '@id': `https://appnitytechnologies.com/blog/${post.slug}`,
     },
   };
 
@@ -73,7 +73,7 @@ export default function PostDetail() {
       <SEO
         title={post.title}
         description={desc}
-        path={`/blog/${post.id}`}
+        path={`/blog/${post.slug}`}
         type="article"
       />
       <Helmet>
@@ -151,7 +151,7 @@ export default function PostDetail() {
               {related.map(r => (
                 <Link
                   key={r.id}
-                  to={`/blog/${r.id}`}
+                  to={`/blog/${r.slug}`}
                   className="post-detail-related__card"
                 >
                   <span

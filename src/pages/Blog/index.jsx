@@ -84,7 +84,7 @@ export default function BlogPage() {
           {filtered.length > 0 ? (
             <div className="blog-grid__posts">
               {filtered.map(post => (
-                <PostCard key={post.id} post={post} onRead={() => navigate(`/blog/${post.id}`)} />
+                <PostCard key={post.id} post={post} onRead={() => navigate(`/blog/${post.slug}`)} />
               ))}
             </div>
           ) : (

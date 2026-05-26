@@ -3,6 +3,7 @@ export const BLOG_CATS = ['All', 'Mobile', 'Web', 'Design', 'Marketing', 'Cloud'
 export const POSTS = [
   {
     id: 1,
+    slug: 'why-your-business-needs-a-mobile-app-in-2025',
     title: 'Why Your Business Needs a Mobile App in 2025',
     cat: 'Mobile',
     excerpt: 'With over 6 billion smartphone users worldwide, having a mobile app is no longer a luxury — it\'s a necessity. Discover why businesses that invest in mobile apps see up to 3x more customer engagement.',
@@ -33,6 +34,7 @@ export const POSTS = [
   },
   {
     id: 2,
+    slug: 'flutter-vs-react-native-which-should-you-choose',
     title: 'Flutter vs React Native: Which One Should You Choose?',
     cat: 'Mobile',
     excerpt: 'Both Flutter and React Native are excellent choices for cross-platform development, but which one is right for your project? We break down the key differences in performance, ecosystem, and developer experience.',
@@ -63,6 +65,7 @@ export const POSTS = [
   },
   {
     id: 3,
+    slug: '10-ui-ux-principles-that-drive-user-engagement',
     title: '10 UI/UX Principles That Drive User Engagement',
     cat: 'Design',
     excerpt: 'Great design isn\'t just about aesthetics — it\'s about creating experiences that feel intuitive and keep users coming back. Here are 10 proven UI/UX principles we apply to every product we build.',
@@ -95,6 +98,7 @@ export const POSTS = [
   },
   {
     id: 4,
+    slug: 'how-to-build-scalable-web-app-react-nodejs',
     title: 'How to Build a Scalable Web App with React and Node.js',
     cat: 'Web',
     excerpt: 'Building for scale from day one saves you from costly rewrites later. We walk through the architecture patterns, database strategies, and deployment practices we use to build web apps that grow with your business.',
@@ -125,6 +129,7 @@ export const POSTS = [
   },
   {
     id: 5,
+    slug: 'digital-marketing-strategies-that-work-in-2026',
     title: 'Digital Marketing Strategies That Actually Work in 2026',
     cat: 'Marketing',
     excerpt: 'SEO, PPC, social media, content — there\'s a lot of noise in digital marketing. We cut through it and share the strategies that consistently deliver ROI for our clients across different industries.',
@@ -154,6 +159,7 @@ export const POSTS = [
   },
   {
     id: 6,
+    slug: 'why-smes-are-moving-to-cloud-practical-guide',
     title: 'Why SMEs Are Moving to Cloud: A Practical Guide',
     cat: 'Cloud',
     excerpt: 'Cloud computing is no longer just for large enterprises. Small and medium businesses are seeing huge gains in flexibility, cost savings, and security. Here\'s everything you need to know before making the move.',
@@ -185,6 +191,7 @@ export const POSTS = [
   },
   {
     id: 7,
+    slug: 'progressive-web-apps-for-your-business',
     title: 'The Power of Progressive Web Apps for Your Business',
     cat: 'Web',
     excerpt: 'Progressive Web Apps combine the best of web and mobile. They load fast, work offline, and can be installed on any device — without going through an app store. Could a PWA be the right solution for you?',
@@ -213,6 +220,7 @@ export const POSTS = [
   },
   {
     id: 8,
+    slug: 'building-a-brand-identity-that-stands-out',
     title: 'Building a Brand Identity That Stands Out',
     cat: 'Design',
     excerpt: 'Your brand is more than a logo — it\'s the entire experience customers have with your business. From colour psychology to typography, we explain the elements that make a brand truly memorable.',
@@ -242,6 +250,7 @@ export const POSTS = [
   },
   {
     id: 10,
+    slug: 'why-small-businesses-need-a-website-in-2026',
     title: 'Why Small Businesses Need a Website in 2026',
     cat: 'Web',
     excerpt: 'In 2026, your website is your most valuable business asset. If you\'re a small business without one — or with an outdated one — you\'re losing customers every single day. Here\'s why it matters more than ever.',
@@ -285,6 +294,7 @@ export const POSTS = [
   },
   {
     id: 9,
+    slug: 'aws-vs-google-cloud-vs-azure-choosing-right-platform',
     title: 'AWS vs Google Cloud vs Azure: Choosing the Right Platform',
     cat: 'Cloud',
     excerpt: 'Each major cloud provider has strengths suited to different use cases. We compare pricing, services, and performance to help you pick the right cloud platform for your next project.',
