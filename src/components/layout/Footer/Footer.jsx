@@ -89,7 +89,7 @@ export default function Footer() {
                       <button
                         onClick={() => {
                           if (ITEM_PATH[item]) navigate(ITEM_PATH[item]);
-                          else if (SERVICE_MAP[item]) navigate('/services/detail', { state: { service: SERVICE_MAP[item] } });
+                          else if (SERVICE_MAP[item]) navigate(`/services/${SERVICE_MAP[item].slug}`);
                         }}
                         className={`footer__col-btn${!ITEM_PATH[item] && !SERVICE_MAP[item] ? ' footer__col-btn--plain' : ''}`}
                       >

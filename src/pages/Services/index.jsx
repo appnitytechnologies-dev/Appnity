@@ -68,7 +68,7 @@ export default function ServicesPage() {
                 <div
                   key={s.name}
                   className="services-card"
-                  onClick={() => navigate('/services/detail', { state: { service: s } })}
+                  onClick={() => navigate(`/services/${s.slug}`)}
                 >
                   <div className="services-card__header">
                     <div className="services-card__icon">

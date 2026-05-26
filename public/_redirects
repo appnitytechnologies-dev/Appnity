@@ -1,6 +1,9 @@
 # Block dead PHP endpoint — was causing 5xx errors on Google crawl
 /api/*  /index.html  404
 
+# 301 redirect: old service detail URL → services index
+/services/detail  /services  301
+
 # 301 redirects: old number-based blog URLs → new slug-based URLs
 /blog/1   /blog/why-your-business-needs-a-mobile-app-in-2025      301
 /blog/2   /blog/flutter-vs-react-native-which-should-you-choose    301

@@ -1,4 +1,4 @@
-import { useNavigate, useLocation } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import NavBar from '../../components/layout/NavBar/NavBar';
 import Footer from '../../components/layout/Footer/Footer';
 import SEO from '../../components/ui/SEO/SEO';
@@ -8,8 +8,8 @@ import './ServiceDetail.css';
 
 export default function ServiceDetailPage() {
   const navigate = useNavigate();
-  const location = useLocation();
-  const s = location.state?.service || SERVICES[0];
+  const { slug } = useParams();
+  const s = SERVICES.find(sv => sv.slug === slug) || SERVICES[0];
   const I = Icons[s.icon];
 
   const seoDesc = `${s.desc} Appnity Technologies delivers end-to-end ${s.name.toLowerCase()} solutions with transparent communication and milestone-based execution.`;
@@ -20,7 +20,7 @@ export default function ServiceDetailPage() {
       <SEO
         title={s.name}
         description={desc}
-        path="/services/detail"
+        path={`/services/${s.slug}`}
       />
       <NavBar />
 

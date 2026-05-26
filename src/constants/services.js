@@ -1,12 +1,12 @@
 export const SERVICES = [
-  { icon: 'Mobile', name: 'Mobile App Development', desc: 'iOS, Android, and cross-platform excellence using Flutter and React Native.' },
-  { icon: 'Web',    name: 'Web App Development',    desc: 'Robust, scalable, and secure web solutions using modern frameworks like React, Angular, and Laravel.' },
-  { icon: 'Brush',  name: 'UI/UX Design',           desc: 'User-focused designs for delightful experiences — from wireframes to pixel-perfect interfaces.' },
-  { icon: 'Layers', name: 'Graphic Design',         desc: 'Visual storytelling that connects and converts — branding, creatives, and marketing materials.' },
-  { icon: 'Chart',  name: 'Digital Marketing',      desc: 'Data-backed strategies using SEO, PPC, social media, and content to amplify your brand.' },
-  { icon: 'Cloud',  name: 'Cloud Computing',        desc: 'Scalable cloud infrastructure on AWS, Google Cloud, and Azure for modern businesses.' },
-  { icon: 'Cog',    name: 'Project Management',     desc: 'Agile delivery with clear communication and milestone-based execution for seamless outcomes.' },
-  { icon: 'Bolt',   name: 'Business Solutions',     desc: 'Custom-built tools — CRMs, ERPs, dashboards — to streamline operations and drive efficiency.' },
+  { icon: 'Mobile', slug: 'mobile-app-development',  name: 'Mobile App Development', desc: 'iOS, Android, and cross-platform excellence using Flutter and React Native.' },
+  { icon: 'Web',    slug: 'web-app-development',      name: 'Web App Development',    desc: 'Robust, scalable, and secure web solutions using modern frameworks like React, Angular, and Laravel.' },
+  { icon: 'Brush',  slug: 'ui-ux-design',             name: 'UI/UX Design',           desc: 'User-focused designs for delightful experiences — from wireframes to pixel-perfect interfaces.' },
+  { icon: 'Layers', slug: 'graphic-design',           name: 'Graphic Design',         desc: 'Visual storytelling that connects and converts — branding, creatives, and marketing materials.' },
+  { icon: 'Chart',  slug: 'digital-marketing',        name: 'Digital Marketing',      desc: 'Data-backed strategies using SEO, PPC, social media, and content to amplify your brand.' },
+  { icon: 'Cloud',  slug: 'cloud-computing',          name: 'Cloud Computing',        desc: 'Scalable cloud infrastructure on AWS, Google Cloud, and Azure for modern businesses.' },
+  { icon: 'Cog',    slug: 'project-management',       name: 'Project Management',     desc: 'Agile delivery with clear communication and milestone-based execution for seamless outcomes.' },
+  { icon: 'Bolt',   slug: 'business-solutions',       name: 'Business Solutions',     desc: 'Custom-built tools — CRMs, ERPs, dashboards — to streamline operations and drive efficiency.' },
 ];
 
 export const SERVICE_CATS = ['All', 'Development', 'Design', 'Strategy'];

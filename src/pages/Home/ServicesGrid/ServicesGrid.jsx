@@ -32,7 +32,7 @@ export default function ServicesGrid() {
               <div
                 key={s.name}
                 className="services-grid__card"
-                onClick={() => navigate('/services/detail', { state: { service: s } })}
+                onClick={() => navigate(`/services/${s.slug}`)}
               >
                 <div className="services-grid__card-icon">
                   <I width="22" height="22" />
