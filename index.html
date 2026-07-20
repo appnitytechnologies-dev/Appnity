@@ -30,26 +30,13 @@
     <link rel="icon" type="image/png" sizes="32x32"   href="/favicon-32.png" />
     <link rel="icon" type="image/png" sizes="16x16"   href="/favicon-16.png" />
     <link rel="apple-touch-icon"      sizes="192x192" href="/favicon-192.png" />
-    <meta name="description" content="Custom mobile apps, web platforms & UI/UX design for growing businesses worldwide. 8+ years · 100+ projects delivered. Get a free consultation today." />
-
-    <!-- Open Graph -->
-    <meta property="og:type"        content="website" />
-    <meta property="og:site_name"   content="Appnity Technologies" />
-    <meta property="og:title"       content="Appnity Technologies | Mobile App & Web Development Company" />
-    <meta property="og:description" content="Custom mobile apps, web platforms & UI/UX design for growing businesses worldwide. 8+ years · 100+ projects delivered. Get a free consultation today." />
-    <meta property="og:url"         content="https://appnitytechnologies.com/" />
-    <meta property="og:image"       content="https://appnitytechnologies.com/og-image.png" />
-    <meta property="og:image:width"  content="1200" />
-    <meta property="og:image:height" content="630" />
-
-    <!-- Twitter Card -->
-    <meta name="twitter:card"        content="summary_large_image" />
-    <meta name="twitter:title"       content="Appnity Technologies | Mobile App & Web Development Company" />
-    <meta name="twitter:description" content="Custom mobile apps, web platforms & UI/UX design for growing businesses worldwide. 8+ years · 100+ projects delivered. Get a free consultation today." />
-    <meta name="twitter:image"       content="https://appnitytechnologies.com/og-image.png" />
-
-    <!-- Canonical -->
-    <link rel="canonical" href="https://appnitytechnologies.com/" />
+    <!--
+      Description, canonical, Open Graph, and Twitter tags are intentionally
+      NOT hardcoded here — every page renders <SEO /> (react-helmet-async),
+      which sets these per-route. Prerendering bakes that per-route output
+      into the static HTML for each URL. Hardcoding defaults here would
+      duplicate those tags (Helmet appends rather than replaces).
+    -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <!-- Load Google Fonts async — avoids render-blocking and reduces CLS -->

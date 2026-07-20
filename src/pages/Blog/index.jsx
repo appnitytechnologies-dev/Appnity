@@ -15,7 +15,9 @@ export default function BlogPage() {
   const [activecat, setActivecat] = useState('All');
 
   const featured = POSTS.find(p => p.featured);
-  const rest = POSTS.filter(p => !p.featured);
+  const rest = POSTS
+    .filter(p => !p.featured)
+    .sort((a, b) => new Date(b.date) - new Date(a.date));
   const filtered = activecat === 'All' ? rest : rest.filter(p => p.cat === activecat);
 
   return (
