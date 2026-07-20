@@ -16,5 +16,17 @@
 /blog/9   /blog/aws-vs-google-cloud-vs-azure-choosing-right-platform 301
 /blog/10  /blog/why-small-businesses-need-a-website-in-2026        301
 
+# 301 redirects: legacy URLs from the old site (pre-rebuild) → current equivalents
+/appnity-services/                                              /services                                                301
+/service-category/work-process/                                 /services                                                301
+/service/design-for-experience/                                 /services/ui-ux-design                                   301
+/service/cloud-computing/                                       /services/cloud-computing                                301
+/portfolio-4/                                                   /portfolio                                               301
+/portfolio-4                                                    /portfolio                                               301
+/blog-3                                                          /blog                                                    301
+/home/                                                           /                                                        301
+/why-ui-ux-design-can-make-or-break-your-app-in-2025/            /blog/10-ui-ux-principles-that-drive-user-engagement     301
+/how-automation-trends-are-impacting-global-industries/          /blog/ai-agents-automation-for-business                  301
+
 # React SPA — all valid routes serve index.html
 /*  /index.html  200

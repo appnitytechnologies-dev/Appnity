@@ -1,4 +1,4 @@
-export const BLOG_CATS = ['All', 'Mobile', 'Web', 'Design', 'Marketing', 'Cloud'];
+export const BLOG_CATS = ['All', 'Mobile', 'Web', 'Design', 'Marketing', 'Cloud', 'AI'];
 
 export const POSTS = [
   {
@@ -321,6 +321,44 @@ export const POSTS = [
         'All three offer competitive pricing — always use the pricing calculator',
         'Consider where your team\'s existing skills lie',
       ]},
+    ],
+  },
+  {
+    id: 11,
+    slug: 'ai-agents-automation-for-business',
+    title: 'AI Agents and Automation: What They Can Actually Do for Your Business',
+    cat: 'AI',
+    excerpt: 'AI agents have moved past the hype cycle into real business use — handling support tickets, qualifying leads, and automating back-office work around the clock. Here\'s what they are, what they\'re good at, and how to start.',
+    author: 'Priya Sharma',
+    role: 'CTO & Co-founder',
+    init: 'PS',
+    date: 'Jul 18, 2026',
+    read: '7 min read',
+    featured: false,
+    accent: '#FF7A45',
+    body: [
+      { type: 'p', text: 'For the last two years, "AI" in business conversations mostly meant a chatbot widget or a smarter autocomplete. That\'s changed. AI agents — systems that can plan, use tools, and complete multi-step tasks with minimal supervision — are now handling real work: triaging support queues, qualifying inbound leads, reconciling invoices, and monitoring systems around the clock. The gap between "AI demo" and "AI in production" has closed faster than most businesses have noticed.' },
+      { type: 'h3', text: 'What Makes an "Agent" Different from a Chatbot' },
+      { type: 'p', text: 'A chatbot answers a question. An agent completes a task. Give an agent a goal — "follow up with leads who haven\'t responded in 3 days" — and it can check a CRM, draft a message, send it, and log the outcome, adjusting its approach based on what it finds along the way. The difference is autonomy and tool use, not just better conversation.' },
+      { type: 'h3', text: 'Where Agents Are Already Paying Off' },
+      { type: 'list', items: [
+        'Customer support — resolving common tickets end-to-end and escalating only the genuinely hard cases',
+        'Sales development — qualifying leads, enriching CRM records, and scheduling calls without human intervention',
+        'Operations — reconciling invoices, chasing overdue payments, and flagging anomalies in reports',
+        'Internal tooling — answering employee questions against internal docs instead of pinging a Slack channel',
+        'Monitoring — watching logs, dashboards, or inboxes and raising alerts with context already attached',
+      ]},
+      { type: 'h3', text: 'Where They Still Need a Human in the Loop' },
+      { type: 'p', text: 'Agents are excellent at well-defined, repeatable work with clear success criteria. They\'re not a substitute for judgment calls that involve legal risk, high-stakes customer relationships, or ambiguous edge cases. The businesses seeing the best results treat agents as a force multiplier for their team — handling volume so people can focus on the 10% of cases that actually need a human — rather than as a full replacement for a department.' },
+      { type: 'h3', text: 'How to Get Started Without Overengineering It' },
+      { type: 'list', items: [
+        'Start with one narrow, high-volume workflow — not "automate customer service"',
+        'Pick a process that\'s already documented; agents amplify existing clarity, they don\'t create it',
+        'Keep a human review step in place for the first few weeks and measure error rate before removing it',
+        'Use tool access deliberately — an agent should only be able to touch the systems it actually needs',
+        'Treat the first version as a pilot, not a finished product — refine the prompt and guardrails as real cases surface',
+      ]},
+      { type: 'p', text: 'At Appnity, we\'ve started embedding agentic workflows directly into client products and internal operations — from support triage to reporting automation. The pattern that works is always the same: narrow scope, clear guardrails, and a fast feedback loop. Done right, it\'s not about replacing people — it\'s about giving a small team the operating leverage of a much bigger one.' },
     ],
   },
 ];
