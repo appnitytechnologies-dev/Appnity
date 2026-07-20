@@ -86,9 +86,12 @@ async function main() {
   await new Promise(resolve => server.close(resolve));
 
   for (const { route, html } of rendered) {
+    // Flat "<route>.html" files (not "<route>/index.html") so Netlify serves
+    // them directly for the exact clean URL — a directory index would 301
+    // to add a trailing slash, which doesn't match our canonical URLs.
     const outPath = route === '/'
       ? path.join(DIST, 'index.html')
-      : path.join(DIST, route, 'index.html');
+      : path.join(DIST, `${route}.html`);
     await mkdir(path.dirname(outPath), { recursive: true });
     await writeFile(outPath, html);
   }
