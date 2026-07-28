@@ -83,6 +83,9 @@ out
 dist
 .output
 
+# Temp SSR bundle used by scripts/prerender.mjs
+.vite-ssr-tmp
+
 # Gatsby files
 .cache/
 # Comment in the public line in if your project uses Gatsby and not Next.js
