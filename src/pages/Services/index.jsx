@@ -1,5 +1,5 @@
 import SEO from '../../components/ui/SEO/SEO';
-import { useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { setCategory } from '../../store/slices/servicesSlice';
 import NavBar from '../../components/layout/NavBar/NavBar';
@@ -10,7 +10,6 @@ import { SERVICES, SERVICE_CATS, SERVICE_TAGS } from '../../constants/services';
 import './Services.css';
 
 export default function ServicesPage() {
-  const navigate = useNavigate();
   const dispatch = useDispatch();
   const activeCategory = useSelector(s => s.services.activeCategory);
   const filtered = SERVICES.filter(s => activeCategory === 'All' || SERVICE_TAGS[s.name] === activeCategory);
@@ -19,7 +18,7 @@ export default function ServicesPage() {
     <>
       <SEO
         title="Our Services"
-        description="Appnity Technologies offers end-to-end digital services — mobile app development, web platforms, UI/UX design, and cloud infrastructure for businesses worldwide."
+        description="End-to-end digital services from Appnity Technologies — mobile app development, web platforms, UI/UX design, and cloud infrastructure for businesses worldwide."
         path="/services"
       />
       <NavBar />
@@ -65,10 +64,10 @@ export default function ServicesPage() {
             {filtered.map(s => {
               const I = Icons[s.icon];
               return (
-                <div
+                <Link
                   key={s.name}
                   className="services-card"
-                  onClick={() => navigate(`/services/${s.slug}`)}
+                  to={`/services/${s.slug}`}
                 >
                   <div className="services-card__header">
                     <div className="services-card__icon">
@@ -81,7 +80,7 @@ export default function ServicesPage() {
                   <div className="services-card__link">
                     Explore service <Icons.Arrow width="13" height="13" />
                   </div>
-                </div>
+                </Link>
               );
             })}
           </div>

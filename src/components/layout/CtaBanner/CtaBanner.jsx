@@ -1,4 +1,4 @@
-import { useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { Icons } from '../../ui/Icons';
 import './CtaBanner.css';
 
@@ -9,8 +9,6 @@ const STATS = [
 ];
 
 export default function CtaBanner() {
-  const navigate = useNavigate();
-
   return (
     <section className="cta-banner">
       <div className="cta-banner__card">
@@ -33,12 +31,12 @@ export default function CtaBanner() {
               with a clear plan, timeline, and a dedicated team ready to deliver.
             </p>
             <div className="cta-banner__actions">
-              <button className="cta-banner__btn-primary" onClick={() => navigate('/contact')}>
+              <Link className="cta-banner__btn-primary" to="/contact">
                 Get In Touch Today <Icons.Arrow width="14" height="14" />
-              </button>
-              <button className="cta-banner__btn-secondary" onClick={() => navigate('/portfolio')}>
+              </Link>
+              <Link className="cta-banner__btn-secondary" to="/portfolio">
                 See Our Work
-              </button>
+              </Link>
             </div>
           </div>
 

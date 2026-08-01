@@ -1,7 +1,7 @@
 import emailjs from '@emailjs/browser';
 import SEO from '../../components/ui/SEO/SEO';
 import { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { updateField, submitForm } from '../../store/slices/contactSlice';
 import NavBar from '../../components/layout/NavBar/NavBar';
@@ -17,7 +17,6 @@ const CONTACT_INFO = [
 ];
 
 export default function ContactPage() {
-  const navigate = useNavigate();
   const dispatch = useDispatch();
   const form = useSelector(s => s.contact.form);
   const sent = useSelector(s => s.contact.sent);
@@ -153,9 +152,9 @@ export default function ContactPage() {
                 <p className="contact__success-desc">
                   We&apos;ll be in touch at <strong>{form.email}</strong> within one business day.
                 </p>
-                <button className="contact__success-btn" onClick={() => navigate('/portfolio')}>
+                <Link className="contact__success-btn" to="/portfolio">
                   View our portfolio
-                </button>
+                </Link>
               </div>
             )}
           </div>

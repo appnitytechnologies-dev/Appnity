@@ -1,4 +1,4 @@
-import { useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import Logo from '../../ui/Logo/Logo';
 import { Icons } from '../../ui/Icons';
 import { useResponsive } from '../../../hooks/useResponsive';
@@ -26,10 +26,12 @@ const ITEM_HREF = {
   'Facebook':  'https://facebook.com/appnitytechnologies',
 };
 
-const SOCIAL_ICONS = [Icons.Twitter, Icons.Linkedin, Icons.Github];
+const SOCIAL_LINKS = [
+  { Icon: Icons.Twitter,  href: ITEM_HREF.Twitter },
+  { Icon: Icons.Linkedin, href: ITEM_HREF.LinkedIn },
+];
 
 export default function Footer() {
-  const navigate = useNavigate();
   const { isMobile } = useResponsive();
 
   return (
@@ -43,9 +45,9 @@ export default function Footer() {
               UI/UX design, and cloud solutions for businesses worldwide.
             </p>
             <div className="footer__socials">
-              {SOCIAL_ICONS.map((I, i) => (
-                <a key={i} href="#" onClick={(e) => e.preventDefault()} className="footer__social-link">
-                  <I width="16" height="16" />
+              {SOCIAL_LINKS.map(({ Icon, href }) => (
+                <a key={href} href={href} target="_blank" rel="noopener noreferrer" className="footer__social-link">
+                  <Icon width="16" height="16" />
                 </a>
               ))}
             </div>
@@ -61,9 +63,9 @@ export default function Footer() {
                 UI/UX design, and cloud solutions for businesses worldwide.
               </p>
               <div className="footer__desktop-socials">
-                {SOCIAL_ICONS.map((I, i) => (
-                  <a key={i} href="#" onClick={(e) => e.preventDefault()} className="footer__social-link">
-                    <I width="16" height="16" />
+                {SOCIAL_LINKS.map(({ Icon, href }) => (
+                  <a key={href} href={href} target="_blank" rel="noopener noreferrer" className="footer__social-link">
+                    <Icon width="16" height="16" />
                   </a>
                 ))}
               </div>
@@ -86,15 +88,12 @@ export default function Footer() {
                         {item}
                       </a>
                     ) : (
-                      <button
-                        onClick={() => {
-                          if (ITEM_PATH[item]) navigate(ITEM_PATH[item]);
-                          else if (SERVICE_MAP[item]) navigate(`/services/${SERVICE_MAP[item].slug}`);
-                        }}
+                      <Link
+                        to={ITEM_PATH[item] || (SERVICE_MAP[item] ? `/services/${SERVICE_MAP[item].slug}` : '#')}
                         className={`footer__col-btn${!ITEM_PATH[item] && !SERVICE_MAP[item] ? ' footer__col-btn--plain' : ''}`}
                       >
                         {item}
-                      </button>
+                      </Link>
                     )}
                   </li>
                 ))}
@@ -106,8 +105,8 @@ export default function Footer() {
         <div className="footer__bottom">
           <div>© 2026 Appnity Technologies. All rights reserved.</div>
           <div className="footer__bottom-links">
-            <button className="footer__bottom-link" onClick={() => navigate('/privacy-policy')}>Privacy Policy</button>
-            <button className="footer__bottom-link" onClick={() => navigate('/terms-of-service')}>Terms of Service</button>
+            <Link className="footer__bottom-link" to="/privacy-policy">Privacy Policy</Link>
+            <Link className="footer__bottom-link" to="/terms-of-service">Terms of Service</Link>
           </div>
         </div>
       </div>

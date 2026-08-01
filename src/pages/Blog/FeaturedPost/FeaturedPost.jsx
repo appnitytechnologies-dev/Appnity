@@ -1,12 +1,10 @@
-import { useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { Icons } from '../../../components/ui/Icons';
 import AuthorChip from '../AuthorChip/AuthorChip';
 import CategoryBadge from '../CategoryBadge/CategoryBadge';
 import './FeaturedPost.css';
 
 export default function FeaturedPost({ post }) {
-  const navigate = useNavigate();
-
   return (
     <div className="featured-post">
       <div
@@ -46,13 +44,13 @@ export default function FeaturedPost({ post }) {
         </div>
         <div className="featured-post__footer">
           <AuthorChip post={post} />
-          <button
+          <Link
             className="featured-post__btn"
             style={{ background: post.accent, boxShadow: `0 4px 14px ${post.accent}40` }}
-            onClick={() => navigate(`/blog/${post.slug}`)}
+            to={`/blog/${post.slug}`}
           >
             Read article <Icons.Arrow width="13" height="13" />
-          </button>
+          </Link>
         </div>
       </div>
     </div>

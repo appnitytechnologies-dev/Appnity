@@ -1,4 +1,4 @@
-import { useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { Icons } from '../../../components/ui/Icons';
 import { useResponsive } from '../../../hooks/useResponsive';
 import './AboutPreview.css';
@@ -18,7 +18,6 @@ const VISUAL_CARDS = [
 ];
 
 export default function AboutPreview() {
-  const navigate = useNavigate();
   const { isMobile } = useResponsive();
 
   return (
@@ -40,15 +39,15 @@ export default function AboutPreview() {
           </p>
           <div className="about-preview__stats">
             {STATS.map(s => (
-              <div key={s.k}>
+              <div key={s.v}>
                 <div className="about-preview__stat-value">{s.k}</div>
                 <div className="about-preview__stat-label">{s.v}</div>
               </div>
             ))}
           </div>
-          <button className="about-preview__btn" onClick={() => navigate('/about')}>
+          <Link className="about-preview__btn" to="/about">
             More about us <Icons.Arrow width="14" height="14" />
-          </button>
+          </Link>
         </div>
 
         {!isMobile && (

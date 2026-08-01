@@ -1,6 +1,6 @@
 import SEO from '../../components/ui/SEO/SEO';
 import { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import NavBar from '../../components/layout/NavBar/NavBar';
 import CtaBanner from '../../components/layout/CtaBanner/CtaBanner';
 import Footer from '../../components/layout/Footer/Footer';
@@ -11,7 +11,6 @@ import PostCard from './PostCard/PostCard';
 import './Blog.css';
 
 export default function BlogPage() {
-  const navigate = useNavigate();
   const [activecat, setActivecat] = useState('All');
 
   const featured = POSTS.find(p => p.featured);
@@ -47,9 +46,9 @@ export default function BlogPage() {
               digital marketing, and cloud — from our team to yours.
             </p>
           </div>
-          <button className="blog-hero__btn" onClick={() => navigate('/contact')}>
+          <Link className="blog-hero__btn" to="/contact">
             Work with us <Icons.Arrow width="14" height="14" />
-          </button>
+          </Link>
         </div>
       </section>
 
@@ -86,7 +85,7 @@ export default function BlogPage() {
           {filtered.length > 0 ? (
             <div className="blog-grid__posts">
               {filtered.map(post => (
-                <PostCard key={post.id} post={post} onRead={() => navigate(`/blog/${post.slug}`)} />
+                <PostCard key={post.id} post={post} />
               ))}
             </div>
           ) : (
@@ -112,9 +111,9 @@ export default function BlogPage() {
                 how we can help your business grow digitally — let's talk.
               </p>
             </div>
-            <button className="blog-newsletter__btn" onClick={() => navigate('/contact')}>
+            <Link className="blog-newsletter__btn" to="/contact">
               Get In Touch <Icons.Arrow width="14" height="14" />
-            </button>
+            </Link>
           </div>
         </div>
       </section>

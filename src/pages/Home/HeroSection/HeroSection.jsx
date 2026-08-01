@@ -1,11 +1,10 @@
-import { useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { Icons } from '../../../components/ui/Icons';
 import { useResponsive } from '../../../hooks/useResponsive';
 import HeroVisual from './HeroVisual/HeroVisual';
 import './HeroSection.css';
 
 export default function HeroSection() {
-  const navigate = useNavigate();
   const { isMobile } = useResponsive();
 
   return (
@@ -32,12 +31,12 @@ export default function HeroSection() {
             </p>
 
             <div className="hero-section__ctas">
-              <button className="hero-section__btn-primary" onClick={() => navigate('/services')}>
+              <Link className="hero-section__btn-primary" to="/services">
                 Explore Our Services <Icons.Arrow width="14" height="14" />
-              </button>
-              <button className="hero-section__btn-secondary" onClick={() => navigate('/contact')}>
+              </Link>
+              <Link className="hero-section__btn-secondary" to="/contact">
                 Get In Touch
-              </button>
+              </Link>
             </div>
 
             <div className="hero-section__trust">

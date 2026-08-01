@@ -33,11 +33,6 @@ export default function ProjectCard({ p }) {
   const [imgFailed, setImgFailed] = useState(false);
   const showImg = p.img && !imgFailed;
 
-  const handleArrow = (e) => {
-    e.stopPropagation();
-    if (p.url) window.open(p.url, '_blank', 'noopener,noreferrer');
-  };
-
   return (
     <div className="project-card">
       <div
@@ -63,13 +58,22 @@ export default function ProjectCard({ p }) {
             <div className="project-card__title">{p.t}</div>
             <div className="project-card__desc">{p.d}</div>
           </div>
-          <span
-            className={`project-card__icon-btn${p.url ? ' project-card__icon-btn--link' : ''}`}
-            onClick={handleArrow}
-            title={p.url ? `Visit ${p.t}` : undefined}
-          >
-            <Icons.ArrowUR width="14" height="14" />
-          </span>
+          {p.url ? (
+            <a
+              className="project-card__icon-btn project-card__icon-btn--link"
+              href={p.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              title={`Visit ${p.t}`}
+              onClick={(e) => e.stopPropagation()}
+            >
+              <Icons.ArrowUR width="14" height="14" />
+            </a>
+          ) : (
+            <span className="project-card__icon-btn">
+              <Icons.ArrowUR width="14" height="14" />
+            </span>
+          )}
         </div>
         <div className="project-card__tag">{p.tag}</div>
       </div>
