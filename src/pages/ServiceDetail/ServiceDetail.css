@@ -399,6 +399,64 @@
   margin-top: 6px;
 }
 
+/* ── FAQ ──────────────────────────────────────────── */
+.sd-faq {
+  padding: 72px 64px;
+  background: var(--brand-paper-soft);
+  border-top: 1px solid var(--brand-border);
+  border-bottom: 1px solid var(--brand-border);
+}
+
+.sd-faq__container {
+  max-width: 1240px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1.4fr;
+  gap: 80px;
+  align-items: flex-start;
+}
+
+.sd-faq__sidebar {
+  position: sticky;
+  top: 100px;
+}
+
+.sd-faq__badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 12px 6px 8px;
+  border-radius: 999px;
+  background: #fff;
+  border: 1px solid var(--brand-border);
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--brand-ink-mute);
+}
+
+.sd-faq__badge-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 999px;
+  background: var(--brand-grad);
+  flex-shrink: 0;
+}
+
+.sd-faq__title {
+  font-size: 40px;
+  margin-top: 18px;
+  font-weight: 700;
+  color: var(--brand-ink);
+}
+
+.sd-faq__subtitle {
+  margin-top: 14px;
+  font-size: 15px;
+  color: var(--brand-ink-mute);
+  line-height: 1.6;
+  max-width: 340px;
+}
+
 /* ── CTA ──────────────────────────────────────────── */
 .sd-cta {
   padding: 96px 64px;
@@ -504,6 +562,7 @@
   .sd-process  { padding: 48px 20px; }
   .sd-features { padding: 48px 20px; }
   .sd-tech     { padding: 48px 20px; }
+  .sd-faq      { padding: 48px 20px; }
   .sd-cta      { padding: 64px 20px; }
 
   .sd-hero__grid        { grid-template-columns: 1fr; gap: 40px; }
@@ -514,6 +573,9 @@
   .sd-process__container { grid-template-columns: 1fr; gap: 32px; }
   .sd-process__title    { font-size: 28px; }
   .sd-features__grid    { grid-template-columns: 1fr; }
+  .sd-faq__container     { grid-template-columns: 1fr; gap: 32px; }
+  .sd-faq__sidebar       { position: static; }
+  .sd-faq__title         { font-size: 28px; }
   .sd-features__title   { font-size: 32px; }
   .sd-tech__grid        { grid-template-columns: repeat(2, 1fr); }
   .sd-tech__title       { font-size: 32px; }

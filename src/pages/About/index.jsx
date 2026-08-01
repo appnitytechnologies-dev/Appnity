@@ -1,11 +1,11 @@
 import SEO from '../../components/ui/SEO/SEO';
 import { Helmet } from 'react-helmet-async';
 import { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import NavBar from '../../components/layout/NavBar/NavBar';
 import CtaBanner from '../../components/layout/CtaBanner/CtaBanner';
 import Footer from '../../components/layout/Footer/Footer';
-import FAQItem from './FAQItem/FAQItem';
+import FAQItem from '../../components/ui/FAQItem/FAQItem';
 import { Icons } from '../../components/ui/Icons';
 import { LEADERSHIP_DOMAINS, VALUES, FAQ } from '../../constants/team';
 import './About.css';
@@ -39,7 +39,6 @@ const MISSION_CARDS = [
 ];
 
 export default function AboutPage() {
-  const navigate = useNavigate();
   const [openFaq, setOpenFaq] = useState(0);
 
   return (
@@ -174,9 +173,9 @@ export default function AboutPage() {
             <p className="about-faq__subtitle">
               Don&apos;t see your question? Reach out — we usually reply within a few hours.
             </p>
-            <button className="about-faq__btn" onClick={() => navigate('/contact')}>
+            <Link className="about-faq__btn" to="/contact">
               Ask a question <Icons.Arrow width="14" height="14" />
-            </button>
+            </Link>
           </div>
           <div>
             {FAQ.map((f, i) => (

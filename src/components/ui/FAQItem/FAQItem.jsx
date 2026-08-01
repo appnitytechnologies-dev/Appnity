@@ -1,4 +1,4 @@
-import { Icons } from '../../../components/ui/Icons';
+import { Icons } from '../Icons';
 import './FAQItem.css';
 
 export default function FAQItem({ q, a, open, onToggle }) {

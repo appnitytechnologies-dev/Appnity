@@ -1,19 +1,33 @@
-import { useNavigate, useParams } from 'react-router-dom';
+import { useState } from 'react';
+import { Link, useParams } from 'react-router-dom';
+import { Helmet } from 'react-helmet-async';
 import NavBar from '../../components/layout/NavBar/NavBar';
 import Footer from '../../components/layout/Footer/Footer';
 import SEO from '../../components/ui/SEO/SEO';
+import FAQItem from '../../components/ui/FAQItem/FAQItem';
 import { Icons } from '../../components/ui/Icons';
-import { SERVICES, SERVICE_TAGS, TECH_STACK, SERVICE_FEATURES } from '../../constants/services';
+import { SERVICES, SERVICE_TAGS } from '../../constants/services';
+import { truncate } from '../../utils/text';
 import './ServiceDetail.css';
 
 export default function ServiceDetailPage() {
-  const navigate = useNavigate();
   const { slug } = useParams();
   const s = SERVICES.find(sv => sv.slug === slug) || SERVICES[0];
   const I = Icons[s.icon];
+  const [openFaq, setOpenFaq] = useState(0);
 
   const seoDesc = `${s.desc} Appnity Technologies delivers end-to-end ${s.name.toLowerCase()} solutions with transparent communication and milestone-based execution.`;
-  const desc = seoDesc.length > 155 ? seoDesc.slice(0, 152) + '…' : seoDesc;
+  const desc = truncate(seoDesc, 155);
+
+  const faqSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: s.faqs.map(f => ({
+      '@type': 'Question',
+      name: f.q,
+      acceptedAnswer: { '@type': 'Answer', text: f.a },
+    })),
+  };
 
   return (
     <>
@@ -22,16 +36,19 @@ export default function ServiceDetailPage() {
         description={desc}
         path={`/services/${s.slug}`}
       />
+      <Helmet>
+        <script type="application/ld+json">{JSON.stringify(faqSchema)}</script>
+      </Helmet>
       <NavBar />
 
       {/* Hero */}
       <section className="sd-hero">
         <div className="sd-hero__blob" />
         <div className="sd-hero__container">
-          <button className="sd-hero__back" onClick={() => navigate('/services')}>
+          <Link className="sd-hero__back" to="/services">
             <span className="sd-hero__back-arrow"><Icons.Arrow width="14" height="14" /></span>
             All services
-          </button>
+          </Link>
 
           <div className="sd-hero__grid">
             <div>
@@ -48,12 +65,12 @@ export default function ServiceDetailPage() {
                 transparent communication and milestone-based execution.
               </p>
               <div className="sd-hero__actions">
-                <button className="sd-hero__btn-primary" onClick={() => navigate('/contact')}>
+                <Link className="sd-hero__btn-primary" to="/contact">
                   Get In Touch <Icons.Arrow width="14" height="14" />
-                </button>
-                <button className="sd-hero__btn-secondary" onClick={() => navigate('/portfolio')}>
+                </Link>
+                <Link className="sd-hero__btn-secondary" to="/portfolio">
                   See related work
-                </button>
+                </Link>
               </div>
             </div>
 
@@ -64,7 +81,7 @@ export default function ServiceDetailPage() {
                 { k: '24h',  v: 'Response time on every inquiry' },
                 { k: '98%',  v: 'Client satisfaction rate' },
               ].map(m => (
-                <div key={m.k} className="sd-hero__stat">
+                <div key={m.v} className="sd-hero__stat">
                   <div className="sd-hero__stat-value">{m.k}</div>
                   <div className="sd-hero__stat-label">{m.v}</div>
                 </div>
@@ -116,7 +133,7 @@ export default function ServiceDetailPage() {
             </div>
           </div>
           <div className="sd-features__grid">
-            {SERVICE_FEATURES.map(f => (
+            {s.features.map(f => (
               <div key={f} className="sd-features__item">
                 <div className="sd-features__item-icon">
                   <Icons.Check width="16" height="16" />
@@ -141,11 +158,38 @@ export default function ServiceDetailPage() {
             We use industry-leading technologies chosen for performance, scalability, and long-term maintainability.
           </p>
           <div className="sd-tech__grid">
-            {TECH_STACK.map(t => (
+            {s.techStack.map(t => (
               <div key={t.n} className="sd-tech__card">
                 <div className="sd-tech__card-group">{t.g}</div>
                 <div className="sd-tech__card-name">{t.n}</div>
               </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* FAQ */}
+      <section className="sd-faq">
+        <div className="sd-faq__container">
+          <div className="sd-faq__sidebar">
+            <div className="sd-faq__badge">
+              <span className="sd-faq__badge-dot" />
+              Frequently asked
+            </div>
+            <h2 className="sd-faq__title">Common questions.</h2>
+            <p className="sd-faq__subtitle">
+              Don&apos;t see your question? Reach out — we usually reply within a few hours.
+            </p>
+          </div>
+          <div>
+            {s.faqs.map((f, i) => (
+              <FAQItem
+                key={f.q}
+                q={f.q}
+                a={f.a}
+                open={openFaq === i}
+                onToggle={() => setOpenFaq(openFaq === i ? -1 : i)}
+              />
             ))}
           </div>
         </div>
@@ -166,12 +210,12 @@ export default function ServiceDetailPage() {
             Tell us about your goals and we'll get back within 24 hours with a clear plan and timeline.
           </p>
           <div className="sd-cta__actions">
-            <button className="sd-cta__btn-primary" onClick={() => navigate('/contact')}>
+            <Link className="sd-cta__btn-primary" to="/contact">
               Get In Touch <Icons.Arrow width="14" height="14" />
-            </button>
-            <button className="sd-cta__btn-secondary" onClick={() => navigate('/portfolio')}>
+            </Link>
+            <Link className="sd-cta__btn-secondary" to="/portfolio">
               See Our Work
-            </button>
+            </Link>
           </div>
         </div>
       </section>
