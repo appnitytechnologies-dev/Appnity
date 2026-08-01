@@ -4,14 +4,18 @@ const SITE_NAME = 'Appnity Technologies';
 const SITE_URL  = 'https://appnitytechnologies.com';
 const DEFAULT_IMAGE = `${SITE_URL}/og-image.png`;
 
+// Google truncates <title> around ~60 characters. For long article/service titles,
+// appending " | Appnity Technologies" would push past that and get cut off mid-word —
+// so the brand suffix is dropped rather than let the title itself get truncated.
 export default function SEO({ title, description, path = '', image, type = 'website' }) {
   const fullTitle = title ? `${title} | ${SITE_NAME}` : SITE_NAME;
+  const seoTitle  = title && fullTitle.length > 60 ? title : fullTitle;
   const url       = `${SITE_URL}${path}`;
   const ogImage   = image || DEFAULT_IMAGE;
 
   return (
     <Helmet>
-      <title>{fullTitle}</title>
+      <title>{seoTitle}</title>
       <meta name="description" content={description} />
       <link rel="canonical" href={url} />
 

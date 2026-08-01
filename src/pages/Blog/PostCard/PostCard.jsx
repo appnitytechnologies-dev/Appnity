@@ -1,10 +1,12 @@
+import { Link } from 'react-router-dom';
 import AuthorChip from '../AuthorChip/AuthorChip';
 import CategoryBadge from '../CategoryBadge/CategoryBadge';
+import { truncate } from '../../../utils/text';
 import './PostCard.css';
 
-export default function PostCard({ post, onRead }) {
+export default function PostCard({ post }) {
   return (
-    <div className="post-card" onClick={onRead}>
+    <Link className="post-card" to={`/blog/${post.slug}`}>
       <div
         className="post-card__accent-bar"
         style={{ background: `linear-gradient(90deg, ${post.accent}, ${post.accent}88)` }}
@@ -15,12 +17,12 @@ export default function PostCard({ post, onRead }) {
           <span className="post-card__read">{post.read}</span>
         </div>
         <h3 className="post-card__title">{post.title}</h3>
-        <p className="post-card__excerpt">{post.excerpt.length > 120 ? post.excerpt.substring(0, 120) + '…' : post.excerpt}</p>
+        <p className="post-card__excerpt">{truncate(post.excerpt, 120)}</p>
         <div className="post-card__footer">
           <AuthorChip post={post} />
           <span className="post-card__date">{post.date}</span>
         </div>
       </div>
-    </div>
+    </Link>
   );
 }

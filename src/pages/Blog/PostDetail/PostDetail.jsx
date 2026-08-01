@@ -1,4 +1,4 @@
-import { useParams, useNavigate, Link } from 'react-router-dom';
+import { useParams, Link } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
 import NavBar from '../../../components/layout/NavBar/NavBar';
 import CtaBanner from '../../../components/layout/CtaBanner/CtaBanner';
@@ -6,12 +6,12 @@ import Footer from '../../../components/layout/Footer/Footer';
 import { Icons } from '../../../components/ui/Icons';
 import SEO from '../../../components/ui/SEO/SEO';
 import { POSTS } from '../../../constants/blog';
+import { truncate } from '../../../utils/text';
 import BodyBlock from './BodyBlock/BodyBlock';
 import './PostDetail.css';
 
 export default function PostDetail() {
   const { slug } = useParams();
-  const navigate = useNavigate();
   const post = POSTS.find(p => p.slug === slug);
 
   if (!post) {
@@ -20,9 +20,9 @@ export default function PostDetail() {
         <NavBar />
         <div className="post-detail-notfound">
           <h1 className="post-detail-notfound__title">Article not found.</h1>
-          <button className="post-detail-notfound__btn" onClick={() => navigate('/blog')}>
+          <Link className="post-detail-notfound__btn" to="/blog">
             Back to Blog
-          </button>
+          </Link>
         </div>
         <Footer />
       </>
@@ -31,7 +31,7 @@ export default function PostDetail() {
 
   const related = POSTS.filter(p => p.cat === post.cat && p.id !== post.id).slice(0, 2);
 
-  const desc = post.excerpt.length > 155 ? post.excerpt.slice(0, 152) + '…' : post.excerpt;
+  const desc = truncate(post.excerpt, 155);
 
   const articleSchema = {
     '@context': 'https://schema.org',
@@ -88,10 +88,10 @@ export default function PostDetail() {
           style={{ background: `radial-gradient(circle, ${post.accent}18, transparent 60%)` }}
         />
         <div className="post-detail-hero__container">
-          <button className="post-detail-hero__back" onClick={() => navigate('/blog')}>
+          <Link className="post-detail-hero__back" to="/blog">
             <span className="post-detail-hero__back-arrow"><Icons.Arrow width="14" height="14" /></span>
             Back to Blog
-          </button>
+          </Link>
 
           <div className="post-detail-hero__meta">
             <span
@@ -132,9 +132,9 @@ export default function PostDetail() {
               <div className="post-detail-body__cta-title">Ready to build something great?</div>
               <div className="post-detail-body__cta-desc">Talk to our team — we reply within 24 hours.</div>
             </div>
-            <button className="post-detail-body__cta-btn" onClick={() => navigate('/contact')}>
+            <Link className="post-detail-body__cta-btn" to="/contact">
               Get In Touch <Icons.Arrow width="14" height="14" />
-            </button>
+            </Link>
           </div>
         </div>
       </section>
