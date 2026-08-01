@@ -6,6 +6,8 @@ export const PROJECTS = [
   { t: 'Bhoomatha Group',      c: 'Web',    d: 'Corporate web presence for a leading real estate developer in India', tag: 'Real Estate · Corporate · Web', accent: '#C47A2B', url: 'https://www.bhoomathagroup.com/' },
   { t: 'Kalam Labs',           c: 'Web',    d: 'Startup & mentorship ecosystem platform connecting innovators and entrepreneurs', tag: 'EdTech · Startups · Mentorship', accent: '#E05C1A', url: 'https://kalamlabs.com/' },
   { t: 'Vizag Vegetables',     c: 'Web',    d: 'Online fresh vegetables & grocery ordering platform for Visakhapatnam', tag: 'E-commerce · Grocery · React', accent: '#4CAF50', url: 'https://vizagvegetables.com/' },
+  { t: 'Yzag Fresh',           c: 'Web',    d: 'Fresh produce & grocery ordering platform built with Next.js', tag: 'E-commerce · Grocery · Next.js', accent: '#2E8B57', url: 'https://www.yzagfresh.com/' },
+  { t: 'Yzag Fresh Admin',     c: 'Web',    d: 'Admin dashboard for managing orders, market rates, inventory & deliveries', tag: 'Admin Dashboard · Next.js · Google OAuth', accent: '#1E6E42', url: 'https://dashboard.yzagfresh.com/' },
 ];
 
 export const PORTFOLIO_FILTERS = ['All', 'Mobile', 'Web', 'Design'];
