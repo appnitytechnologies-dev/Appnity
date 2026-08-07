@@ -33,7 +33,7 @@ export default function ContactPage() {
     setError('');
     try {
       await emailjs.send(
-        'service_sonq8js',
+        'service_p8x11te',
         'template_5wxgd7u',
         {
           name:    form.name,
